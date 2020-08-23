@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "./components/Header";
 import { Route } from "react-router-dom";
 import Main from "./pages/Main";
 import MyNote from "./pages/MyNote";
 import styled, { ThemeProvider } from "styled-components";
+import { Header } from "./containers";
 
 const bodySize = {
   margin: "auto",
@@ -14,7 +14,7 @@ const bodySize = {
 const Contant = styled.div`
   margin: ${bodySize.margin};
   padding: ${bodySize.padding};
-  padding-top: 6rem;
+  padding-top: 11rem;
   max-width: ${bodySize.maxWidth};
 `;
 
