@@ -10,18 +10,23 @@ function Header({ history, theme }) {
     history.push("/");
   };
 
-  const scrolling = useScroll();
+  const [scrolling, firstScroll] = useScroll();
 
   return (
-    <S.StyledHeader theme={theme} scrolling={scrolling}>
+    <S.StyledHeader
+      theme={theme}
+      scrolling={scrolling}
+      firstScroll={firstScroll}
+    >
       <S.NavDiv>
         <S.SideDiv>
           <S.MainLogo src={logo} alt="logo" onClick={goHome} />
         </S.SideDiv>
         <S.MenuDiv>
-          <S.Anchor href="/">Project</S.Anchor>
+          <S.Anchor href="/About">About</S.Anchor>
+          <S.Anchor href="/Project">Project</S.Anchor>
           <S.Anchor href="/MyNote">MyNote</S.Anchor>
-          <S.Anchor href="/">Contact</S.Anchor>
+          <S.Anchor href="/Contact">Contact</S.Anchor>
         </S.MenuDiv>
         <S.SideDiv>
           <S.MainLogo src={logo} alt="logo" />
