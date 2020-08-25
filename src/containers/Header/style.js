@@ -1,4 +1,22 @@
-import styled, { css } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
+
+const downMove = keyframes`
+    from {
+      height: 10rem;
+    }
+    to {
+      height: 4.5rem;
+    }
+`;
+
+const upMove = keyframes`
+    from {
+      height: 4.5rem;
+    }
+    to {
+      height: 10rem;
+    }
+`;
 
 export const StyledHeader = styled.header`
   position: fixed;
@@ -7,11 +25,25 @@ export const StyledHeader = styled.header`
   height: 10rem;
   background-color: rgba(255 255 255 0.9);
   backdrop-filter: blur(2px);
+
+  animation-name: ${upMove};
+  /* 첫 스크롤 시에는 애니메이션이 없도록 name만 따로 빼주었다.*/
+  /* firstScroll이 없을 경우엔 첫 렌더링 시에도 animation이 발동하고 */
+  /* name과 같이 firstscroll && 안에 넣어주게되면 첫animation시 깜빡임이 발생. */
+
+  ${({ firstScroll }) =>
+    firstScroll &&
+    css`
+      animation-duration: 0.7s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-out;
+    `}
+
   ${({ scrolling }) =>
     scrolling &&
     css`
-      height: auto;
-      box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+      animation-name: ${downMove};
     `};
 `;
 
