@@ -4,7 +4,7 @@ import reset from "styled-reset";
 const GlobalStyles = createGlobalStyle`
     ${reset};
     *{
-        box-sizing:boerder-box;
+        box-sizing: border-box;
     }
     a{
         color:inherit;

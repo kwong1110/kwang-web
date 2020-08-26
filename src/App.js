@@ -2,24 +2,19 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { Main, About, Project, MyNote, Contact } from "./pages";
 import styled, { ThemeProvider } from "styled-components";
-import { Header } from "./containers";
-
-const bodySize = {
-  margin: "auto",
-  padding: "0 4rem 0 4rem",
-  maxWidth: "85rem",
-};
+import { Header } from "./organisms";
+import theme from "./commons/Themes";
 
 const Contant = styled.div`
-  margin: ${bodySize.margin};
-  padding: ${bodySize.padding};
-  padding-top: 11rem;
-  max-width: ${bodySize.maxWidth};
+  margin: ${theme.bodySize.margin};
+  padding: ${theme.bodySize.padding};
+  padding-top: 9rem;
+  max-width: ${theme.bodySize.maxWidth};
 `;
 
 function App() {
   return (
-    <ThemeProvider theme={{ bodySize }}>
+    <ThemeProvider theme={theme}>
       <Header />
       <Contant>
         <Route path="/" component={Main} exact />
