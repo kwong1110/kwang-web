@@ -1,4 +1,5 @@
 import styled, { keyframes, css } from "styled-components";
+import theme from "../../commons/Themes";
 
 const downMove = keyframes`
     from {
@@ -76,7 +77,8 @@ export const MainLogo = styled.img`
 `;
 
 export const Anchor = styled.a`
+  font-size: 1.1rem;
   & + & {
-    margin-left: 3rem;
+    ${theme.interval.menu};
   }
 `;

@@ -2,7 +2,6 @@ import React from "react";
 import logo from "../../images/logo.svg";
 import { withRouter } from "react-router-dom";
 import useScroll from "../../hooks/useScroll";
-
 import * as S from "./style";
 
 function Header({ history, theme }) {
