@@ -10,4 +10,8 @@ function SubTitle({ titleName }) {
   );
 }
 
+SubTitle.defaultProps = {
+  titleName: SubTitle,
+};
+
 export default SubTitle;
