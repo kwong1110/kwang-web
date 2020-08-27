@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import theme from "./Themes";
 import reset from "styled-reset";
 
 const GlobalStyles = createGlobalStyle`
@@ -23,6 +24,15 @@ const GlobalStyles = createGlobalStyle`
     }
     h1, h2, h3, h4, h5, h6{
         font-family: sans-serif;
+    }
+    h3 {
+        ${theme.fontStyle.subTitle1};
+    }
+    h4 {
+        ${theme.fontStyle.subTitle2};
+    }
+    h5 {
+        ${theme.fontStyle.subTitle3};
     }
     ol, ul, li {
         list-style: none;

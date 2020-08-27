@@ -1,8 +1,5 @@
 import React from "react";
-import About from "./About";
-import Project from "./Project";
-import MyNote from "./MyNote";
-import Contact from "./Contact";
+import { About, Project, MyNote, Contact } from "..";
 
 function Main() {
   return (
