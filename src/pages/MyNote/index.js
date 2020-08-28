@@ -1,7 +1,13 @@
 import React from "react";
+import { SubTitle, PostList } from "../../organisms";
 
 function MyNote() {
-  return <div>내 노트입니다.</div>;
+  return (
+    <>
+      <SubTitle titleName={MyNote} />
+      <PostList></PostList>
+    </>
+  );
 }
 
 export default MyNote;
