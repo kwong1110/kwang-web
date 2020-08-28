@@ -25,7 +25,7 @@ export const StyledHeader = styled.header`
   width: 100%;
   height: 10rem;
   background-color: rgba(255 255 255 0.9);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
 
   animation-name: ${upMove};
   /* 첫 스크롤 시에는 애니메이션이 없도록 name만 따로 빼주었다.*/
@@ -61,6 +61,7 @@ export const MenuDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 400;
 `;
 
 export const SideDiv = styled.div`

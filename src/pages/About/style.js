@@ -31,7 +31,7 @@ export const keyward = styled.h5`
   color: white;
   font-weight: 700;
   text-align: center;
-  z-index: 2;
+  z-index: -1; /* 스크롤 시 메뉴바 뒤에 오기 위함. */
 `;
 
 export const keywardContant = styled.div`
@@ -41,5 +41,5 @@ export const keywardContant = styled.div`
   padding: 2rem 1.2rem 1.2rem 1.2rem;
   border: 4px solid ${theme.palette.decoGray[1]};
   border-radius: 10px;
-  z-index: 1;
+  z-index: -2;
 `;
