@@ -5,7 +5,7 @@ export const IntroBox = styled.div`
   ${theme.interval.box};
   display: flex;
   border-radius: 10px;
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.1), -7px 0 10px rgba(0, 0, 0, 0.1);
+  ${theme.boxShadow};
 `;
 
 export const IntroText = styled.div`
