@@ -42,6 +42,8 @@ const theme = {
     alert: "#ff6b6b",
     decoGray: ["#dee2e6", "#adb5bd", "#868e96", "#343a40"],
   },
+  boxShadow:
+    "box-shadow: 2px 2px rgba(0, 0, 0, 0.1), -7px 0 10px rgba(0, 0, 0, 0.1);",
 };
 
 export default theme;
