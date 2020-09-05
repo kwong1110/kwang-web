@@ -18,10 +18,10 @@ function App() {
       <Header />
       <Contant>
         <Route path="/" component={Main} exact />
-        <Route path="/About" component={About} exact />
-        <Route path="/Project" component={Project} exact />
-        <Route path="/MyNote" component={MyNote} exact />
-        <Route path="/Contact" component={Contact} exact />
+        <Route path="/about" component={About} exact />
+        <Route path="/project" component={Project} exact />
+        <Route path="/myNote" component={MyNote} exact />
+        <Route path="/contact" component={Contact} exact />
       </Contant>
     </ThemeProvider>
   );

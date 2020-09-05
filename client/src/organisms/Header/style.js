@@ -61,6 +61,7 @@ export const MenuDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: ${theme.palette.decoGray[3]};
   font-weight: 400;
 `;
 
