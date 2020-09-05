@@ -22,8 +22,8 @@ const theme = {
     `,
   },
   interval: {
-    menu: "margin-left: 5rem",
-    btn: "margin-left: 2rem",
+    menu: "margin-left: 3rem",
+    btn: "margin-left: 1rem",
     bottomLine: "padding: 0.5rem",
     atom: `
       padding: 0.5rem 0.5rem 0 0.5rem; 
@@ -35,12 +35,12 @@ const theme = {
     `,
   },
   palette: {
-    primary: "#ffc078",
-    emphasis: ["#ffc9c9", "#ffa8a8", "#fa5252", "#e03131"],
-    success: "#8ce99a",
-    reject: "#f783ac",
-    alert: "#ff6b6b",
-    decoGray: ["#dee2e6", "#adb5bd", "#868e96", "#343a40"],
+    primary: "#ffa94d", // 주황
+    success: "#69db7c", // 초록
+    reject: "#ff6b6b", // 빨강
+    black: "#212529",
+    emphasis: ["#ffd8a8", "#ffa94d", "#fd7e14", "#e8590c"], // 주황
+    decoGray: ["#dee2e6", "#adb5bd", "#868e96", "#495057"],
   },
   boxShadow:
     "box-shadow: 2px 2px rgba(0, 0, 0, 0.1), -7px 0 10px rgba(0, 0, 0, 0.1);",
