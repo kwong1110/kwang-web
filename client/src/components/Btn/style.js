@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import { darken, lighten } from "polished";
 import theme from "../../commons/Themes";
+import { darken, lighten } from "polished";
 
 const colorStyles = css`
   ${({ color }) => {
@@ -74,6 +74,7 @@ export const StyledBtn = styled.button`
   cursor: pointer;
   padding-left: 1rem;
   padding-right: 1rem;
+  margin-top: 1rem;
   justify-content: center;
   align-items: center;
 
