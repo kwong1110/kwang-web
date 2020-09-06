@@ -3,7 +3,6 @@ import logo from "../../images/logo.svg";
 import { useHistory } from "react-router-dom";
 import useScroll from "../../hooks/useScroll";
 import * as S from "./style";
-import Btn from "../../components/Btn";
 
 function Header() {
   const history = useHistory();

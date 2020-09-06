@@ -24,14 +24,14 @@ const theme = {
   interval: {
     menu: "margin-left: 3rem",
     btn: "margin-left: 1rem",
-    bottomLine: "padding: 0.5rem",
+    bottomLine: "padding: 0.2rem",
     atom: `
-      padding: 0.5rem 0.5rem 0 0.5rem; 
+      padding: 0.5rem 0.5rem 0.5rem 0.5rem; 
       margin: 0 1rem 0.5rem 1rem
     `,
     box: `
       padding: 0.5rem;
-      margin: 0.3rem 1.2rem 0.3rem 1.2rem;
+      margin: 0.3rem 1.2rem 1.2rem 1.2rem;
     `,
   },
   palette: {
