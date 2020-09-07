@@ -78,7 +78,7 @@ export const MainLogo = styled.img`
   cursor: pointer;
 `;
 
-export const Anchor = styled.a`
+export const MenuName = styled.span`
   font-size: 1.1rem;
   & + & {
     ${theme.interval.menu};

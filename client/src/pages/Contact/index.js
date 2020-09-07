@@ -14,7 +14,7 @@ function Contact() {
       <Btn color="reject" size="small">
         취소
       </Btn>
-      <Btn color="reject" icon="delete" outline />
+      <Btn color="success" icon="delete" outline />
     </>
   );
 }

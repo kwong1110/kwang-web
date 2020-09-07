@@ -6,12 +6,9 @@ export const Input = styled.input`
   height: 2.5rem;
   border: solid 2px ${theme.palette.decoGray[2]};
   border-radius: 4px;
+  margin-bottom: 1rem;
 
   &:focus {
     outline-color: ${theme.palette.emphasis[2]};
-  }
-
-  & + & {
-    margin-top: 1rem;
   }
 `;

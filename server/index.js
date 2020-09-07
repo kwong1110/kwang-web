@@ -41,8 +41,6 @@ app.get("/api/hello", (req, res) => {
 });
 
 app.post("/api/users/register", (req, res) => {
-  // 회원 가입 할때 필요한 정보들을 client -> DB
-
   const user = new User(req.body);
 
   user.save((err, userInfo) => {
@@ -59,7 +57,7 @@ app.post("/api/users/login", (req, res) => {
     if (!user) {
       return res.json({
         loginSuccess: false,
-        message: "제공된 이메일에 해당하는 유저가 없습니다.",
+        message: "이메일에 해당하는 유저가 없습니다.",
       });
     }
 

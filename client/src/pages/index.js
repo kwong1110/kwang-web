@@ -4,3 +4,4 @@ export { default as Project } from "./Project";
 export { default as MyNote } from "./MyNote";
 export { default as Contact } from "./Contact";
 export { default as Login } from "./Login";
+export { default as NotFound } from "./NotFound";
