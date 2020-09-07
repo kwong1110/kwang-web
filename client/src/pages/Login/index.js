@@ -16,31 +16,9 @@ function Login() {
   const [form, onChange, reset] = useInputs(initialState);
   const { email, password } = form;
 
-  const dispatch = useDispatch();
-  const history = useHistory();
-
-  const onsubmitHandler = (event) => {
-    event.preventDefault();
-
-    const body = {
-      email: email,
-      password: password,
-    };
-
-    console.log(body);
-    dispatch(loginUser(body)).then((response) => {
-      // console.log(response);
-      if (response.payload.loginSuccess) {
-        reset();
-        history.push("/");
-      } else {
-        alert(response.payload.message);
-      }
-    });
-  };
   return (
     <DefaultDiv>
-      <S.loginForm onSubmit={onsubmitHandler}>
+      <S.loginForm onSubmit={loginHandler}>
         <SubTitle titleName={Login} />
         <Input
           name="email"

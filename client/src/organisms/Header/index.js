@@ -1,8 +1,11 @@
 import React from "react";
 import logo from "../../images/logo.svg";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import axios from "axios";
 import useScroll from "../../hooks/useScroll";
 import * as S from "./style";
+import { Btn } from "../../components";
 
 function Header() {
   const history = useHistory();
@@ -20,14 +23,27 @@ function Header() {
           <S.MainLogo src={logo} alt="logo" onClick={goHome} />
         </S.SideDiv>
         <S.MenuDiv>
-          <S.Anchor href="/about">About</S.Anchor>
-          <S.Anchor href="/project">Project</S.Anchor>
-          <S.Anchor href="/myNote">MyNote</S.Anchor>
-          <S.Anchor href="/contact">Contact</S.Anchor>
+          <S.MenuName>
+            <Link to="/about">About</Link>
+          </S.MenuName>
+          <S.MenuName>
+            <Link to="/project">Project</Link>
+          </S.MenuName>
+          <S.MenuName>
+            <Link to="/mynote">Mynote</Link>
+          </S.MenuName>
+          <S.MenuName>
+            <Link to="/contact">Contact</Link>
+          </S.MenuName>
+          <S.SideDiv>
+            <Btn size="small" onClick={logoutHandler}>
+              로그아웃
+            </Btn>
+          </S.SideDiv>
         </S.MenuDiv>
       </S.NavDiv>
     </S.StyledHeader>
   );
 }
 
-export default Header;
+export default React.memo(Header);
