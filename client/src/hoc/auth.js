@@ -9,7 +9,6 @@ export default function (SpecificComponent, option, adminRoute = null) {
 
   function AuthenticationCheck(props) {
     const dispatch = useDispatch();
-
     useEffect(() => {
       dispatch(auth()).then((response) => {
         // 로그인 하지 않은 상태

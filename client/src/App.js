@@ -4,6 +4,7 @@ import { createBrowserHistory } from "history";
 import theme from "./commons/Themes";
 import styled, { ThemeProvider } from "styled-components";
 import { Header } from "./organisms";
+import Auth from "./hoc/auth";
 import {
   Main,
   About,
@@ -30,12 +31,12 @@ function App() {
         <Header />
         <Contant>
           <Switch>
-            <Route path="/" component={Main} exact />
-            <Route path="/about" component={About} exact />
-            <Route path="/project" component={Project} exact />
-            <Route path="/myNote" component={MyNote} exact />
-            <Route path="/contact" component={Contact} exact />
-            <Route path="/login" component={Login} exact />
+            <Route path="/" component={Auth(Main, null)} exact />
+            <Route path="/about" component={Auth(About, null)} exact />
+            <Route path="/project" component={Auth(Project, null)} exact />
+            <Route path="/myNote" component={Auth(MyNote, null)} exact />
+            <Route path="/contact" component={Auth(Contact, null)} exact />
+            <Route path="/login" component={Auth(Login, false)} exact />
             <Route component={NotFound} />
           </Switch>
         </Contant>
@@ -45,52 +46,3 @@ function App() {
 }
 
 export default App;
-
-const auth = {
-  isAuthenticated: false,
-  AuthenticationCheck() {},
-};
-
-function AuthenticationCheck() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(auth()).then((response) => {
-      response.payload.isAuth;
-      response.payload.isAdmin;
-    });
-  }, [dispatch]);
-
-  return;
-}
-
-const logoutHandler = () => {
-  axios.get("/api/users/logout").then((response) => {
-    if (response.data.success) {
-      alert("로그아웃 되었습니다!");
-      history.push("/");
-    } else {
-      alert("로그아웃 실패!");
-    }
-  });
-};
-
-const loginHandler = (event) => {
-  const dispatch = useDispatch();
-  event.preventDefault();
-
-  const body = {
-    email: email,
-    password: password,
-  };
-
-  dispatch(loginUser(body)).then((response) => {
-    // console.log(response);
-    if (response.payload.loginSuccess) {
-      reset();
-      history.push("/");
-    } else {
-      alert(response.payload.message);
-    }
-  });
-};

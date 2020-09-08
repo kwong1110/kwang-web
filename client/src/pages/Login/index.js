@@ -16,6 +16,27 @@ function Login() {
   const [form, onChange, reset] = useInputs(initialState);
   const { email, password } = form;
 
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const loginHandler = (event) => {
+    event.preventDefault();
+
+    const body = {
+      email: email,
+      password: password,
+    };
+
+    dispatch(loginUser(body)).then((response) => {
+      // console.log(response);
+      if (response.payload.loginSuccess) {
+        reset();
+        history.push("/");
+      } else {
+        alert(response.payload.message);
+      }
+    });
+  };
   return (
     <DefaultDiv>
       <S.loginForm onSubmit={loginHandler}>
