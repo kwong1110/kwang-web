@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import logo from "../../images/logo.svg";
 import { useHistory, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import useScroll from "../../hooks/useScroll";
 import * as S from "./style";
 import { Btn } from "../../components";
+import useScroll from "../../hooks/useScroll";
 import { logoutUser } from "../../modules/actions/user";
+
+import logo from "../../images/logo.svg";
 
 function Header() {
   const history = useHistory();
@@ -25,7 +26,6 @@ function Header() {
       if (response.payload.success) {
         alert("로그아웃 되었습니다!");
         setIsLogout(true);
-        history.push("/");
       } else {
         alert(response.payload.message);
       }

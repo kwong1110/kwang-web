@@ -2,10 +2,10 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as S from "./style";
-import { SubTitle } from "../../organisms";
-import { Input, Btn, DefaultDiv } from "../../components";
 import useInputs from "../../hooks/useInputs";
 import { loginUser } from "../../modules/actions/user";
+import { SubTitle } from "../../organisms";
+import { Input, Btn, DefaultDiv } from "../../components";
 
 function Login() {
   const initialState = {

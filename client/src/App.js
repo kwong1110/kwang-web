@@ -3,8 +3,8 @@ import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import theme from "./commons/Themes";
 import styled, { ThemeProvider } from "styled-components";
-import { Header } from "./organisms";
 import Auth from "./hoc/auth";
+import { Header } from "./organisms";
 import {
   Main,
   About,
