@@ -1,20 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../images/logo.svg";
 import { useHistory, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
 import useScroll from "../../hooks/useScroll";
 import * as S from "./style";
 import { Btn } from "../../components";
+import { logoutUser } from "../../modules/actions/user";
 
 function Header() {
   const history = useHistory();
+  const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.user);
+
+  const [scrolling, firstScroll] = useScroll();
+  const [IsLogout, setIsLogout] = useState(false);
 
   const goHome = () => {
     history.push("/");
   };
 
-  const [scrolling, firstScroll] = useScroll();
+  const logoutHandler = () => {
+    dispatch(logoutUser()).then((response) => {
+      if (response.payload.success) {
+        alert("로그아웃 되었습니다!");
+        setIsLogout(true);
+        history.push("/");
+      } else {
+        alert(response.payload.message);
+      }
+    });
+  };
 
   return (
     <S.StyledHeader scrolling={scrolling} firstScroll={firstScroll}>
@@ -35,15 +51,17 @@ function Header() {
           <S.MenuName>
             <Link to="/contact">Contact</Link>
           </S.MenuName>
-          <S.SideDiv>
-            <Btn size="small" onClick={logoutHandler}>
-              로그아웃
-            </Btn>
-          </S.SideDiv>
+          {user.userData && user.userData.isAuth && !IsLogout && (
+            <S.SideDiv>
+              <Btn size="small" onClick={logoutHandler}>
+                로그아웃
+              </Btn>
+            </S.SideDiv>
+          )}
         </S.MenuDiv>
       </S.NavDiv>
     </S.StyledHeader>
   );
 }
 
-export default React.memo(Header);
+export default Header;

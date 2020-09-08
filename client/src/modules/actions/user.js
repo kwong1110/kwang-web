@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LOGIN_USER, AUTH_USER } from "./types";
+import { LOGIN_USER, AUTH_USER, LOGOUT_USER } from "./types";
 
 // Flux Standard Action (FSA 규칙)
 // 유틸 함수를 만들때 유용하다
@@ -24,6 +24,17 @@ export function auth() {
 
   return {
     type: AUTH_USER,
+    payload: request,
+  };
+}
+
+export function logoutUser() {
+  const request = axios
+    .get("/api/users/logout")
+    .then((response) => response.data);
+
+  return {
+    type: LOGOUT_USER,
     payload: request,
   };
 }
