@@ -27,7 +27,8 @@ const userSchema = mongoose.Schema({
   },
 });
 
-require("../methods/user")(userSchema);
+userSchema.plugin(require("../methods/user"));
+//require("../methods/user")(userSchema);
 
 const User = mongoose.model("User", userSchema);
 
