@@ -23,7 +23,7 @@ const boardSchema = mongoose.Schema({
   imgPath: {
     type: String,
   },
-  createdAt: {
+  creatDate: {
     type: Date,
     default: Date.now,
   },
