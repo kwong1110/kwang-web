@@ -25,6 +25,10 @@ const userSchema = mongoose.Schema({
   tokenExp: {
     type: Number,
   },
+  createDate: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 userSchema.plugin(require("../methods/user"));
