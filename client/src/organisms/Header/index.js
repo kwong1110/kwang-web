@@ -43,10 +43,10 @@ function Header() {
             <Link to="/about">About</Link>
           </S.MenuName>
           <S.MenuName>
-            <Link to="/project">Project</Link>
+            <Link to="/posts/project">Project</Link>
           </S.MenuName>
           <S.MenuName>
-            <Link to="/mynote">Mynote</Link>
+            <Link to="/posts/mynote">Mynote</Link>
           </S.MenuName>
           <S.MenuName>
             <Link to="/contact">Contact</Link>

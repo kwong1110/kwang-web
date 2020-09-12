@@ -33,8 +33,12 @@ function App() {
           <Switch>
             <Route path="/" component={Auth(Main, null)} exact />
             <Route path="/about" component={Auth(About, null)} exact />
-            <Route path="/project" component={Auth(Project, null)} exact />
-            <Route path="/myNote" component={Auth(MyNote, null)} exact />
+            <Route
+              path="/posts/project"
+              component={Auth(Project, null)}
+              exact
+            />
+            <Route path="/posts/myNote" component={Auth(MyNote, null)} exact />
             <Route path="/contact" component={Auth(Contact, null)} exact />
             <Route path="/login" component={Auth(Login, false)} exact />
             <Route component={NotFound} />

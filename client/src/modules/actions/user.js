@@ -6,9 +6,9 @@ import { LOGIN_USER, AUTH_USER, LOGOUT_USER } from "./types";
 // 규칙1 : 모든 action의 추가 적인 값을 payload로 통일
 // 규칙2 : 에러 발생 할 때엔 error를 true로 수정한다.
 
-export function loginUser(dataToSubmit) {
+export function loginUser(body) {
   const request = axios
-    .post("/api/users/login", dataToSubmit)
+    .post("/api/users/login", body)
     .then((response) => response.data);
 
   return {

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const boardSchema = mongoose.Schema({
+const postSchema = mongoose.Schema({
   writer: {
     type: Schema.Types.ObjectId,
     required: true,
@@ -23,12 +23,12 @@ const boardSchema = mongoose.Schema({
   imgPath: {
     type: String,
   },
-  creatDate: {
+  createDate: {
     type: Date,
     default: Date.now,
   },
 });
 
-const Board = mongoose.model("Board", boardSchema);
+const Post = mongoose.model("Post", postSchema);
 
-module.exports = { Board };
+module.exports = { Post };

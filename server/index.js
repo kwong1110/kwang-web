@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use("/api/users", require("./routes/users"));
-app.use("/api/boards", require("./routes/boards"));
+app.use("/api/posts", require("./routes/posts"));
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
