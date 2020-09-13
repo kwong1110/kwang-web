@@ -5,7 +5,7 @@ export default function (state = {}, action) {
     case GET_POSTS:
       return {
         ...state,
-        postData: action.payload,
+        data: action.payload,
       };
     default:
       return state;

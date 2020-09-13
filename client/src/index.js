@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Router } from "react-router-dom";
+import { createBrowserHistory } from "history";
 import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
 import promiseMiddleware from "redux-promise";
@@ -7,6 +9,8 @@ import ReduxThunk from "redux-thunk";
 import App from "./App";
 import GlobalStyles from "./commons/GlobalStyles";
 import rootReducer from "./modules/reducers";
+
+const history = createBrowserHistory();
 
 const createStoreWithMiddleware = applyMiddleware(
   promiseMiddleware,
@@ -21,9 +25,11 @@ const store = createStoreWithMiddleware(
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <Router history={history}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );

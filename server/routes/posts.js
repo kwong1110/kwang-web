@@ -2,11 +2,13 @@ const express = require("express");
 const router = express.Router();
 const { Post } = require("../models/Post");
 
-router.post("/", (req, res) => {
-  let postType = req.body.postType;
-  let page = req.body.page;
-  let limit = req.body.limit ? parseInt(req.body.limit) : 5;
+router.get("/:postType/:page", (req, res) => {
+  // console.log(req.params.postType);
+  let postType = req.params.postType;
+  let page = parseInt(req.params.page, 10);
+  let limit = req.limit ? parseInt(req.body.limit, 10) : 5;
   let skip = parseInt((page - 1) * 2);
+
   Post.countDocuments({ type: postType }, (err, count) => {
     if (err) return res.json({ success: false, err });
 
@@ -17,10 +19,10 @@ router.post("/", (req, res) => {
       .skip(skip)
       .limit(limit)
       .exec((err, posts) => {
+        console.log(posts);
         if (err) return res.json({ success: false, err });
-        return res.status(200).send({
-          success: true,
-          posts: posts,
+        return res.status(200).json({
+          posts,
           maxPage: maxPage,
         });
       });
