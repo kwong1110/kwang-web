@@ -1,14 +1,13 @@
 import axios from "axios";
 import { GET_POSTS } from "./types";
 
-export function getPosts(body) {
-  const { page, postType } = body;
-  const request = axios
-    .get(`/api/posts/${postType}/${page}/`)
-    .then((response) => response.data);
+export const getPosts = async (param) => {
+  const { page, postType } = param;
+
+  const response = await axios.get(`/api/posts/${postType}/${page}/`);
 
   return {
     type: GET_POSTS,
-    payload: request,
+    payload: response.data,
   };
-}
+};

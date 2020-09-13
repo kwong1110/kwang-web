@@ -6,26 +6,27 @@ import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
 import promiseMiddleware from "redux-promise";
 import ReduxThunk from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
 import App from "./App";
 import GlobalStyles from "./commons/GlobalStyles";
 import rootReducer from "./modules/reducers";
 
-const history = createBrowserHistory();
+const customHistory = createBrowserHistory();
 
-const createStoreWithMiddleware = applyMiddleware(
-  promiseMiddleware,
-  ReduxThunk
-)(createStore);
-
-const store = createStoreWithMiddleware(
+const store = createStore(
   rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  composeWithDevTools(
+    applyMiddleware(
+      promiseMiddleware,
+      ReduxThunk.withExtraArgument({ history: customHistory })
+    )
+  )
 );
 
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
-    <Router history={history}>
+    <Router history={customHistory}>
       <Provider store={store}>
         <App />
       </Provider>

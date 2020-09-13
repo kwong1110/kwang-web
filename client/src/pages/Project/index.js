@@ -4,27 +4,28 @@ import { SubTitle, IntroPostLIst } from "../../organisms";
 import { getPosts } from "../../modules/actions/post";
 
 function Project() {
-  const posts = useSelector((state) => state.post.data);
-  // const { posts } = useSelector((state) => ({ posts: state.post.data.posts }));
+  const { posts } = useSelector((state) => state.post.data);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (posts) return;
 
-    const body = {
+    const param = {
       page: 1,
       postType: "project",
     };
 
-    dispatch(getPosts(body));
+    dispatch(getPosts(param));
   }, [dispatch, posts]);
 
   console.log(posts);
 
+  if (!posts) return <div>로딩중</div>;
+
   return (
     <>
       <SubTitle titleName={Project} />
-      <IntroPostLIst />
+      <IntroPostLIst posts={posts} />
     </>
   );
 }
