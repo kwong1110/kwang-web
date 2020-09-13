@@ -4,25 +4,23 @@ import { SubTitle, IntroPostLIst } from "../../organisms";
 import { getPosts } from "../../modules/actions/post";
 
 function Project() {
-  const postData = useSelector((state) => state.post.postData);
+  const posts = useSelector((state) => state.post.data);
+  // const { posts } = useSelector((state) => ({ posts: state.post.data.posts }));
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (posts) return;
+
     const body = {
       page: 1,
-      postType: "PROJECT",
+      postType: "project",
     };
 
-    dispatch(getPosts(body)).then((response) => {
-      if (response.payload.success) {
-        console.log(response.payload.maxPage);
-      } else {
-        alert(response.payload.message);
-      }
-    });
-  }, [dispatch, postData]);
+    dispatch(getPosts(body));
+  }, [dispatch, posts]);
 
-  if (!postData) return null;
+  console.log(posts);
+
   return (
     <>
       <SubTitle titleName={Project} />
