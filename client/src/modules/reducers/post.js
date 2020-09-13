@@ -1,6 +1,10 @@
 import { GET_POSTS } from "../actions/types";
 
-export default function (state = {}, action) {
+const initialState = {
+  data: { posts: null },
+};
+
+export default function (state = initialState, action) {
   switch (action.type) {
     case GET_POSTS:
       return {

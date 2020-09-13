@@ -19,7 +19,6 @@ router.get("/:postType/:page", (req, res) => {
       .skip(skip)
       .limit(limit)
       .exec((err, posts) => {
-        console.log(posts);
         if (err) return res.json({ success: false, err });
         return res.status(200).json({
           posts,
