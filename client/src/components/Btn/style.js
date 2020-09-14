@@ -8,7 +8,7 @@ const colorStyles = css`
     return css`
       background: ${selected};
       &:hover {
-        background: ${lighten(0.2, selected)};
+        background: ${lighten(0.1, selected)};
       }
       &:active {
         background: ${darken(0.1, selected)};

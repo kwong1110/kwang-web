@@ -1,13 +1,17 @@
 import React from "react";
 import * as S from "./style";
-import { GoPlus, GoTrashcan } from "react-icons/go";
+import { GoPlus } from "react-icons/go";
+import { AiOutlineForm, AiOutlineClose } from "react-icons/ai";
+import ReactTooltip from "react-tooltip";
 
 function iconHandler(icon) {
   switch (icon) {
     case "plus":
       return <GoPlus />;
     case "delete":
-      return <GoTrashcan />;
+      return <AiOutlineClose />;
+    case "update":
+      return <AiOutlineForm />;
     default:
       return;
   }
@@ -16,9 +20,22 @@ function iconHandler(icon) {
 function Btn({ children, color, size, outline, fullWidth, icon, ...rest }) {
   if (icon) {
     return (
-      <S.IconBtn color={color} outline={outline}>
-        {iconHandler(icon)}
-      </S.IconBtn>
+      <>
+        <S.IconBtn
+          color={color}
+          outline={outline}
+          data-tip={children}
+          data-place="bottom"
+          data-effect="solid"
+          data-iscapture="false"
+          data-arrow-color="rgba(0, 0, 0, 0)"
+          data-text-color="rgba(255, 255, 255, 0.6)"
+          data-background-color="rgba(0, 0, 0, 0.2)"
+        >
+          {iconHandler(icon)}
+        </S.IconBtn>
+        <ReactTooltip />
+      </>
     );
   }
   return (

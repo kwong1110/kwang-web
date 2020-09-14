@@ -33,12 +33,16 @@ const theme = {
       padding: 0.5rem;
       margin: 0.3rem 1.2rem 1.2rem 1.2rem;
     `,
+    pageBottom: `
+      margin-bottom: 4.5rem;
+    `,
   },
   palette: {
     primary: "#ffa94d", // 주황
     success: "#69db7c", // 초록
     reject: "#ff6b6b", // 빨강
     black: "#212529",
+    gray: "#d4d2cd",
     emphasis: ["#ffd8a8", "#ffa94d", "#fd7e14", "#e8590c"], // 주황
     decoGray: ["#dee2e6", "#adb5bd", "#868e96", "#495057"],
   },

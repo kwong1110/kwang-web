@@ -6,7 +6,7 @@ import javascript from "../../images/skills/javascript.svg";
 
 function About() {
   return (
-    <>
+    <S.aboutBox>
       <SubTitle titleName={About} />
       <S.subTitle2>profiles</S.subTitle2>
       <DefaultDiv>
@@ -40,7 +40,7 @@ function About() {
       <DefaultDiv>
         <S.skillImg src={javascript} />
       </DefaultDiv>
-    </>
+    </S.aboutBox>
   );
 }
 

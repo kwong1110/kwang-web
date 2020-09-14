@@ -1,5 +1,6 @@
 import styled from "styled-components";
+import theme from "../../commons/Themes";
 
 export const IntroPostBox = styled.div`
-  display: block;
+  ${theme.interval.pageBottom};
 `;

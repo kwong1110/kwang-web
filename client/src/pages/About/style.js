@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import theme from "../../commons/Themes";
 
+export const aboutBox = styled.div`
+  ${theme.interval.pageBottom};
+`;
+
 export const skillImg = styled.img`
   width: auto;
   height: 5rem;
