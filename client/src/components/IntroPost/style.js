@@ -8,13 +8,20 @@ export const IntroBox = styled.div`
   ${theme.boxShadow};
 `;
 
-export const IntroText = styled.div`
+export const IntroTextBox = styled.div`
   ${theme.interval.atom};
+  width: 55%;
+`;
+
+export const IntroBtnBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const IntroImg = styled.img`
   width: 40%;
-  height: 10rem;
+  height: 12rem;
   border-right: 2px solid rgba(0, 0, 0, 0.1);
 `;
 

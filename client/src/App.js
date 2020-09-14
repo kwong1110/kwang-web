@@ -12,6 +12,7 @@ import {
   Contact,
   Login,
   NotFound,
+  PostCreate,
 } from "./pages";
 
 const Contant = styled.div`
@@ -33,6 +34,7 @@ function App() {
           <Route path="/posts/mynote" component={Auth(MyNote, null)} exact />
           <Route path="/contact" component={Auth(Contact, null)} exact />
           <Route path="/login" component={Auth(Login, false)} exact />
+          <Route path="/:create" component={PostCreate} />
           <Route component={NotFound} />
         </Switch>
       </Contant>
