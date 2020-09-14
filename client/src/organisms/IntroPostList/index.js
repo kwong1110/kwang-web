@@ -1,12 +1,14 @@
 import React from "react";
+import * as S from "./style";
 import IntroPost from "../../components/IntroPost";
-import DefaultDiv from "../../components/DefaultDiv";
 
-function IntroPostLIst() {
+function IntroPostLIst({ posts }) {
   return (
-    <DefaultDiv>
-      <IntroPost></IntroPost>
-    </DefaultDiv>
+    <S.IntroPostBox>
+      {posts.map((post) => (
+        <IntroPost key={post._id} post={post}></IntroPost>
+      ))}
+    </S.IntroPostBox>
   );
 }
 

@@ -13,7 +13,7 @@ export const IntroText = styled.div`
 `;
 
 export const IntroImg = styled.img`
-  width: auto;
+  width: 40%;
   height: 10rem;
   border-right: 2px solid rgba(0, 0, 0, 0.1);
 `;

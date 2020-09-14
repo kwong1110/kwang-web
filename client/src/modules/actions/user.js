@@ -6,35 +6,29 @@ import { LOGIN_USER, AUTH_USER, LOGOUT_USER } from "./types";
 // 규칙1 : 모든 action의 추가 적인 값을 payload로 통일
 // 규칙2 : 에러 발생 할 때엔 error를 true로 수정한다.
 
-export function loginUser(body) {
-  const request = axios
-    .post("/api/users/login", body)
-    .then((response) => response.data);
+export const loginUser = async (body) => {
+  const response = await axios.post("/api/users/login", body);
 
   return {
     type: LOGIN_USER,
-    payload: request,
+    payload: response.data,
   };
-}
+};
 
-export function auth() {
-  const request = axios
-    .get("/api/users/auth")
-    .then((response) => response.data);
+export const auth = async () => {
+  const response = await axios.get("/api/users/auth");
 
   return {
     type: AUTH_USER,
-    payload: request,
+    payload: response.data,
   };
-}
+};
 
-export function logoutUser() {
-  const request = axios
-    .get("/api/users/logout")
-    .then((response) => response.data);
+export const logoutUser = async () => {
+  const response = await axios.get("/api/users/logout");
 
   return {
     type: LOGOUT_USER,
-    payload: request,
+    payload: response.data,
   };
-}
+};

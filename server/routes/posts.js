@@ -21,7 +21,7 @@ router.get("/:postType/:page", (req, res) => {
       .exec((err, posts) => {
         if (err) return res.json({ success: false, err });
         return res.status(200).json({
-          posts,
+          data: posts,
           maxPage: maxPage,
         });
       });

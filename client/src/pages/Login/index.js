@@ -29,7 +29,7 @@ function Login() {
 
     dispatch(loginUser(body)).then((response) => {
       // console.log(response);
-      if (response.payload.loginSuccess) {
+      if (response.payload.success) {
         reset();
         history.push("/");
       } else {

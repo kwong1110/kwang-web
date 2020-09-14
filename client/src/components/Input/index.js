@@ -9,6 +9,7 @@ function Input({ type, name, value, onChange, placeholder }) {
       value={value}
       onChange={onChange}
       placeholder={placeholder}
+      autocomplete="off"
     ></S.Input>
   );
 }

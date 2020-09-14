@@ -4,11 +4,11 @@ import { SubTitle, IntroPostLIst } from "../../organisms";
 import { getPosts } from "../../modules/actions/post";
 
 function Project() {
-  const { posts } = useSelector((state) => state.post.data);
+  const { data } = useSelector((state) => state.post.posts);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (posts) return;
+    if (data) return;
 
     const param = {
       page: 1,
@@ -16,16 +16,19 @@ function Project() {
     };
 
     dispatch(getPosts(param));
-  }, [dispatch, posts]);
+  }, [dispatch, data]);
 
-  console.log(posts);
+  // console.log(posts);
 
-  if (!posts) return <div>로딩중</div>;
+  // 차 후 예정
+  // if (loading && !data) return <div>로딩중...</div>;
+  // if (error) return <div>에러 발생!</div>;
+  if (!data) return null;
 
   return (
     <>
       <SubTitle titleName={Project} />
-      <IntroPostLIst posts={posts} />
+      <IntroPostLIst posts={data} />
     </>
   );
 }
