@@ -34,8 +34,17 @@ function App() {
           <Route path="/posts/mynote" component={Auth(MyNote, null)} exact />
           <Route path="/contact" component={Auth(Contact, null)} exact />
           <Route path="/login" component={Auth(Login, false)} exact />
-          <Route path="/posts/:create" component={PostCreate} />
-          <Route component={NotFound} />
+          <Route
+            path="/posts/project/create"
+            component={Auth(PostCreate, true)}
+            exact
+          />
+          <Route
+            path="/posts/mynote/create"
+            component={Auth(PostCreate, true)}
+            exact
+          />
+          <Route component={Auth(NotFound, null)} />
         </Switch>
       </Contant>
     </ThemeProvider>

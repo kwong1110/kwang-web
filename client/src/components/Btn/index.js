@@ -31,6 +31,7 @@ function Btn({ children, color, size, outline, fullWidth, icon, ...rest }) {
           data-arrow-color="rgba(0, 0, 0, 0)"
           data-text-color="rgba(255, 255, 255, 0.6)"
           data-background-color="rgba(0, 0, 0, 0.2)"
+          {...rest}
         >
           {iconHandler(icon)}
         </S.IconBtn>
