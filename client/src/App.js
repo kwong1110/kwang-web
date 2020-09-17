@@ -17,8 +17,8 @@ import {
 
 const Contant = styled.div`
   margin: ${theme.bodySize.margin};
+  margin-top: 10rem;
   padding: ${theme.bodySize.padding};
-  padding-top: 9rem;
   max-width: ${theme.bodySize.maxWidth};
 `;
 

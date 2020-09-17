@@ -28,4 +28,16 @@ router.get("/:postType/:page", (req, res) => {
   });
 });
 
+router.post("/:postType/create", (req, res) => {
+  req.body.type = req.params.postType;
+  const post = new Post(req.body);
+
+  post.save((err) => {
+    if (err) return res.json({ success: false, err });
+    return res.status(200).json({
+      success: true,
+    });
+  });
+});
+
 module.exports = router;

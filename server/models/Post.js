@@ -23,6 +23,9 @@ const postSchema = mongoose.Schema({
   imgPath: {
     type: String,
   },
+  githubURL: {
+    type: String,
+  },
   createDate: {
     type: Date,
     default: Date.now,

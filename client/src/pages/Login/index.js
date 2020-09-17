@@ -22,12 +22,12 @@ function Login() {
   const loginHandler = (event) => {
     event.preventDefault();
 
-    const body = {
+    const data = {
       email: email,
       password: password,
     };
 
-    dispatch(loginUser(body)).then((response) => {
+    dispatch(loginUser(data)).then((response) => {
       // console.log(response);
       if (response.payload.success) {
         reset();
@@ -39,7 +39,7 @@ function Login() {
   };
   return (
     <DefaultDiv>
-      <S.loginForm onSubmit={loginHandler}>
+      <S.LoginForm onSubmit={loginHandler}>
         <SubTitle titleName={Login} />
         <Input
           name="email"
@@ -57,7 +57,7 @@ function Login() {
         <Btn fullWidth type="submit">
           로그인
         </Btn>
-      </S.loginForm>
+      </S.LoginForm>
     </DefaultDiv>
   );
 }

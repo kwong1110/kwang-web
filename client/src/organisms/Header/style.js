@@ -3,7 +3,7 @@ import theme from "../../commons/Themes";
 
 const downMove = keyframes`
     from {
-      height: 10rem;
+      height: 8rem;
     }
     to {
       height: 4.5rem;
@@ -15,7 +15,7 @@ const upMove = keyframes`
       height: 4.5rem;
     }
     to {
-      height: 10rem;
+      height: 8rem;
     }
 `;
 
@@ -23,7 +23,7 @@ export const StyledHeader = styled.header`
   position: fixed;
   top: 0;
   width: 100%;
-  height: 10rem;
+  height: 8rem;
   background-color: rgba(255 255 255 0.9);
   backdrop-filter: blur(3px);
 
@@ -52,9 +52,9 @@ export const NavDiv = styled.div`
   display: flex;
   height: inherit;
   justify-content: space-between;
-  max-width: ${({ theme }) => theme.bodySize.maxWidth};
-  margin: ${({ theme }) => theme.bodySize.margin};
-  padding: ${({ theme }) => theme.bodySize.padding};
+  max-width: ${theme.bodySize.maxWidth};
+  margin: ${theme.bodySize.margin};
+  padding: ${theme.bodySize.padding};
 `;
 
 export const MenuDiv = styled.div`
