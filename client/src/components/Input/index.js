@@ -1,16 +1,15 @@
 import React from "react";
 import * as S from "./style";
 
-function Input({ type, name, value, onChange, placeholder }) {
+function Input({ type, name, value, ...rest }) {
   return (
-    <S.Input
+    <S.StyledInput
       type={type}
       name={name}
       value={value}
-      onChange={onChange}
-      placeholder={placeholder}
+      {...rest}
       autocomplete="off"
-    ></S.Input>
+    ></S.StyledInput>
   );
 }
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import theme from "../../commons/Themes";
 
-export const Input = styled.input`
+export const StyledInput = styled.input`
   width: 100%;
   height: 2.5rem;
   border: solid 2px ${theme.palette.decoGray[2]};

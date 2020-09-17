@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
-export const loginForm = styled.form`
+export const LoginForm = styled.form`
   width: 35%;
 `;

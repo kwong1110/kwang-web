@@ -1,13 +1,6 @@
 import styled from "styled-components";
 import theme from "../../commons/Themes";
 
-export const IntroBox = styled.div`
-  ${theme.interval.box};
-  display: flex;
-  border-radius: 10px;
-  ${theme.boxShadow};
-`;
-
 export const IntroTextBox = styled.div`
   ${theme.interval.atom};
   width: 55%;

@@ -3,14 +3,14 @@ import theme from "../commons/Themes";
 import styled from "styled-components";
 
 const StyledDiv = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   ${theme.interval.box};
+  display: flex;
+  border-radius: 10px;
+  ${theme.boxShadow};
 `;
 
-function DefaultDiv({ children }) {
+function ShadowDiv({ children }) {
   return <StyledDiv>{children}</StyledDiv>;
 }
 
-export default DefaultDiv;
+export default ShadowDiv;
