@@ -1,25 +1,14 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import * as S from "./style";
 import IntroPost from "../../components/IntroPost";
-import { Btn, DefaultDiv } from "../../components";
 
 function IntroPostLIst({ posts }) {
-  const history = useHistory();
-
-  const createPostHandler = () => {
-    history.push("/posts/project/create");
-  };
-
   return (
+    // post를 수정 할 때 정보전달을 위해 pNo를 사용.
+    // _id를 사용하게 되면 보안, 개인정보등의 이유가 있을 수 있으므로
     <S.IntroPostBox>
-      <DefaultDiv>
-        <Btn icon="plus" onClick={createPostHandler}>
-          프로젝트 추가
-        </Btn>
-      </DefaultDiv>
-      {posts.map((post) => (
-        <IntroPost key={post._id} post={post}></IntroPost>
+      {posts.map((post, n) => (
+        <IntroPost key={post._id} post={post} pNo={n}></IntroPost>
       ))}
     </S.IntroPostBox>
   );

@@ -7,7 +7,7 @@ export default function (SpecificComponent, option, adminRoute = null) {
   // true  => 로그인한 유저만 출입이 가능한 페이지
   // false => 로그인한 유저는 출입 불가한 페이지
 
-  function AuthenticationCheck(props) {
+  function AuthenticationCheck(props, { ...rest }) {
     // console.log(props);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -34,7 +34,7 @@ export default function (SpecificComponent, option, adminRoute = null) {
       });
     }, [props.history, dispatch]);
 
-    return <SpecificComponent props={props} />;
+    return <SpecificComponent props={props} {...rest} />;
   }
 
   return AuthenticationCheck;

@@ -17,7 +17,7 @@ import {
 
 const Contant = styled.div`
   margin: ${theme.bodySize.margin};
-  margin-top: 10rem;
+  margin-top: 8rem;
   padding: ${theme.bodySize.padding};
   max-width: ${theme.bodySize.maxWidth};
 `;
@@ -35,16 +35,16 @@ function App() {
           <Route path="/contact" component={Auth(Contact, null)} exact />
           <Route path="/login" component={Auth(Login, false)} exact />
           <Route
-            path="/posts/project/create"
+            path="/posts/:type/create"
             component={Auth(PostCreate, true)}
             exact
           />
           <Route
-            path="/posts/mynote/create"
+            path="/posts/:type/edit"
             component={Auth(PostCreate, true)}
             exact
           />
-          <Route component={Auth(NotFound, null)} />
+          <Route path="*" component={Auth(NotFound, null)} />
         </Switch>
       </Contant>
     </ThemeProvider>
