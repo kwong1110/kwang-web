@@ -1,7 +1,9 @@
 import { LOGIN_USER, AUTH_USER, LOGOUT_USER } from "../actions/types";
 
 const initialState = {
-  userData: null,
+  userData: {
+    _id: null,
+  },
 };
 
 export default function (state = initialState, action) {
