@@ -9,13 +9,13 @@ import "codemirror/lib/codemirror.css";
 import "@toast-ui/editor/dist/toastui-editor-viewer.css";
 import { Viewer } from "@toast-ui/react-editor";
 
-function IntroPost({ post }) {
+function IntroPost({ post, pNo }) {
   const history = useHistory();
 
   const { title, content } = post;
 
   const postUpdateHandler = () => {
-    history.push(`project/edit`);
+    history.push(`project/edit/${pNo}`);
   };
 
   return (

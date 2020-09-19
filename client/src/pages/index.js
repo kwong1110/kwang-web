@@ -5,4 +5,5 @@ export { default as MyNote } from "./MyNote";
 export { default as Contact } from "./Contact";
 export { default as Login } from "./Login";
 export { default as PostCreate } from "./PostCreate";
+export { default as PostEdit } from "./PostEdit";
 export { default as NotFound } from "./NotFound";

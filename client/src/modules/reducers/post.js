@@ -1,4 +1,4 @@
-import { GET_POSTS, CREATE_POST } from "../actions/types";
+import { GET_POSTS, CREATE_POST, EDIT_POST } from "../actions/types";
 
 const initialState = {
   posts: { data: null, maxPage: 1 },
@@ -12,6 +12,10 @@ export default function (state = initialState, action) {
         posts: action.payload,
       };
     case CREATE_POST:
+      return {
+        ...state,
+      };
+    case EDIT_POST:
       return {
         ...state,
       };
