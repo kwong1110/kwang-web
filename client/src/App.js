@@ -13,6 +13,7 @@ import {
   Login,
   NotFound,
   PostCreate,
+  PostEdit,
 } from "./pages";
 
 const Contant = styled.div`
@@ -40,8 +41,8 @@ function App() {
             exact
           />
           <Route
-            path="/posts/:type/edit"
-            component={Auth(PostCreate, true)}
+            path="/posts/:type/edit/:pNo"
+            component={Auth(PostEdit, true)}
             exact
           />
           <Route path="*" component={Auth(NotFound, null)} />

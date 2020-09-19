@@ -1,18 +1,20 @@
 import React from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createPost } from "../../modules/actions/post";
 import { PostAction } from "../../organisms";
 
-function PostCreate() {
+function PostEdit() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const type = useParams().type;
+  const { pNo, type } = useParams();
 
-  const createHandler = (body) => {
+  const { data } = useSelector((state) => state.post.posts);
+
+  const editHandler = (body) => {
     dispatch(createPost(body, type)).then((response) => {
       if (response.payload.success) {
-        alert("작성 성공");
+        alert("수정 성공");
         history.push("/");
       } else {
         alert(response.payload.message);
@@ -22,9 +24,13 @@ function PostCreate() {
 
   return (
     <>
-      <PostAction submitAction={createHandler} actionName="작성" />
+      <PostAction
+        submitAction={editHandler}
+        actionName="수정"
+        originData={data[pNo]}
+      />
     </>
   );
 }
 
-export default PostCreate;
+export default PostEdit;

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_POSTS, CREATE_POST } from "./types";
+import { GET_POSTS, CREATE_POST, EDIT_POST } from "./types";
 
 export const getPosts = async (param) => {
   const { page, postType } = param;
@@ -17,6 +17,15 @@ export const createPost = async (body, param) => {
 
   return {
     type: CREATE_POST,
+    payload: response.data,
+  };
+};
+
+export const editPost = async (body, param) => {
+  const response = await axios.post(`/api/posts/${param}/edit`, body);
+
+  return {
+    type: EDIT_POST,
     payload: response.data,
   };
 };

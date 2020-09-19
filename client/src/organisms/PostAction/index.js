@@ -1,6 +1,7 @@
 import React, { createRef } from "react";
 import * as S from "./style";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { NotFound } from "../../pages";
 import useInputs from "../../hooks/useInputs";
 import { SubTitle } from "../../organisms";
@@ -10,16 +11,20 @@ import "codemirror/lib/codemirror.css";
 import "@toast-ui/editor/dist/toastui-editor.css";
 import { Editor } from "@toast-ui/react-editor";
 
-function PostAction({ postHandler }) {
-  const history = useHistory();
-  const dispatch = useDispatch();
-  const editorRef = createRef();
-
+function PostAction({ submitAction, actionName, originData = null }) {
   const { _id } = useSelector((state) => state.user.userData);
 
-  const initialState = {
+  const editorRef = createRef();
+  let editorInitialValue = "##### 기간 : 2020.09.00 ~ 2020.00.00";
+
+  let initialState = {
     title: "",
   };
+
+  if (originData) {
+    initialState.title = originData.title;
+    editorInitialValue = originData.content;
+  }
 
   const [form, onChange, reset] = useInputs(initialState);
   const { title } = form;
@@ -33,26 +38,19 @@ function PostAction({ postHandler }) {
       content: editorRef.current.getInstance().getHtml(),
     };
 
-    dispatch(createPost(body, "project")).then((response) => {
-      if (response.payload.success) {
-        reset();
-        history.push("/");
-      } else {
-        alert(response.payload.message);
-      }
-    });
+    submitAction(body);
+    reset();
   };
 
-  const { type } = useParams();
-
   // params를 이용해 type과 action을 지정한 페이지가 아니면 접근을 못하게함.
-  if (type !== "project" && type !== "mynote") return <NotFound />;
-
+  const { type } = useParams();
   const titleName = type === "project" ? "프로젝트" : "노트";
+
+  if (type !== "project" && type !== "mynote") return <NotFound />;
 
   return (
     <div>
-      <SubTitle titleName={`${titleName} 작성`} action />
+      <SubTitle titleName={`${titleName} ${actionName}`} action />
       <ShadowDiv>
         <S.PostCreateForm onSubmit={postHandler}>
           <Input
@@ -66,7 +64,7 @@ function PostAction({ postHandler }) {
             previewStyle="vertical"
             height="530px"
             initialEditType="wysiwyg"
-            initialValue="##### 기간 : 2020.09.00 ~ 2020.00.00"
+            initialValue={editorInitialValue}
             ref={editorRef}
           />
           <Btn type="submit" style={{ marginTop: "1.5rem" }}>
