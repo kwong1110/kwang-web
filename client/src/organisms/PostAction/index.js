@@ -2,7 +2,7 @@ import React, { createRef } from "react";
 import * as S from "./style";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { NotFound } from "../../pages";
+import { ErrorPage } from "../../pages";
 import useInputs from "../../hooks/useInputs";
 import { SubTitle } from "../../organisms";
 import { Input, Btn, ShadowDiv } from "../../components";
@@ -46,7 +46,8 @@ function PostAction({ submitAction, actionName, originData = null }) {
   const { type } = useParams();
   const titleName = type === "project" ? "프로젝트" : "노트";
 
-  if (type !== "project" && type !== "mynote") return <NotFound />;
+  if (type !== "project" && type !== "mynote")
+    return <ErrorPage msg="게시글 종류를 확인해주세요." />;
 
   return (
     <div>

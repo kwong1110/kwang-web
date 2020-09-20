@@ -10,21 +10,19 @@ function Project() {
   const history = useHistory();
 
   const createPostHandler = () => {
-    history.push("project/create");
+    history.push("project/form");
   };
 
   const { data } = useSelector((state) => state.post.posts);
 
   useEffect(() => {
-    if (data) return;
-
     const param = {
       page: 1,
       postType: "project",
     };
 
     dispatch(getPosts(param));
-  }, [dispatch, data]);
+  }, [dispatch]);
 
   // 차 후 예정
   // if (loading && !data) return <div>로딩중...</div>;

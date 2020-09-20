@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { createPost } from "../../modules/actions/post";
+import { createPost, getPost, clearPost } from "../../modules/actions/post";
 import { PostAction } from "../../organisms";
 
-function PostEdit() {
+function PostView() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { pNo, type } = useParams();
+  const { type, postId } = useParams();
 
-  const { data } = useSelector((state) => state.post.posts);
+  const { data } = useSelector((state) => state.post.post);
+
+  useEffect(() => {
+    dispatch(getPost(postId));
+    return () => {
+      dispatch(clearPost());
+    };
+  }, [dispatch, postId]);
 
   const editHandler = (body) => {
     dispatch(createPost(body, type)).then((response) => {
@@ -21,16 +28,18 @@ function PostEdit() {
       }
     });
   };
-
+  if (!data) return null;
   return (
     <>
-      <PostAction
+      {/* <PostAction
         submitAction={editHandler}
         actionName="수정"
-        originData={data[pNo]}
-      />
+        originData={data}
+      /> */}
+      <div>{data.title}</div>
+      <div>{data.content}</div>
     </>
   );
 }
 
-export default PostEdit;
+export default PostView;
