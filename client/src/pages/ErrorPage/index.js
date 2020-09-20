@@ -2,12 +2,16 @@ import React from "react";
 import { DefaultDiv } from "../../components";
 import { SubTitle } from "../../organisms/SubTitle/style";
 
-function NotFound() {
+function ErrorPage({ message }) {
   return (
     <DefaultDiv>
-      <SubTitle>페이지를 찾을 수 없습니다.</SubTitle>
+      <SubTitle>{message}</SubTitle>
     </DefaultDiv>
   );
 }
 
-export default NotFound;
+ErrorPage.defaultProps = {
+  message: "페이지를 찾을 수 없습니다.",
+};
+
+export default ErrorPage;

@@ -11,9 +11,9 @@ import {
   MyNote,
   Contact,
   Login,
-  NotFound,
-  PostCreate,
-  PostEdit,
+  ErrorPage,
+  PostForm,
+  PostView,
 } from "./pages";
 
 const Contant = styled.div`
@@ -31,21 +31,23 @@ function App() {
         <Switch>
           <Route path="/" component={Auth(Main, null)} exact />
           <Route path="/about" component={Auth(About, null)} exact />
+          <Route path="/posts" component={Auth(ErrorPage, null)} exact />
           <Route path="/posts/project" component={Auth(Project, null)} exact />
           <Route path="/posts/mynote" component={Auth(MyNote, null)} exact />
+          <Route
+            path="/posts/:type/form"
+            component={Auth(PostForm, true)}
+            exact
+          />
+          <Route
+            path="/posts/:type/:postId"
+            component={Auth(PostView, true)}
+            exact
+          />
           <Route path="/contact" component={Auth(Contact, null)} exact />
           <Route path="/login" component={Auth(Login, false)} exact />
-          <Route
-            path="/posts/:type/create"
-            component={Auth(PostCreate, true)}
-            exact
-          />
-          <Route
-            path="/posts/:type/edit/:pNo"
-            component={Auth(PostEdit, true)}
-            exact
-          />
-          <Route path="*" component={Auth(NotFound, null)} />
+
+          <Route path="*" component={Auth(ErrorPage, null)} />
         </Switch>
       </Contant>
     </ThemeProvider>

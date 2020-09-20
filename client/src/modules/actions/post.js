@@ -1,8 +1,14 @@
 import axios from "axios";
-import { GET_POSTS, CREATE_POST, EDIT_POST } from "./types";
+import {
+  GET_POSTS,
+  CREATE_POST,
+  EDIT_POST,
+  GET_POST,
+  CLEAR_POST,
+} from "./types";
 
 export const getPosts = async (param) => {
-  const { page, postType } = param;
+  const { postType, page } = param;
 
   const response = await axios.get(`/api/posts/${postType}/${page}`);
 
@@ -12,8 +18,17 @@ export const getPosts = async (param) => {
   };
 };
 
+export const getPost = async (postId) => {
+  const response = await axios.get(`/api/posts/${postId}`);
+
+  return {
+    type: GET_POST,
+    payload: response.data,
+  };
+};
+
 export const createPost = async (body, param) => {
-  const response = await axios.post(`/api/posts/${param}/create`, body);
+  const response = await axios.post(`/api/posts/${param}`, body);
 
   return {
     type: CREATE_POST,
@@ -28,4 +43,8 @@ export const editPost = async (body, param) => {
     type: EDIT_POST,
     payload: response.data,
   };
+};
+
+export const clearPost = () => {
+  return { type: CLEAR_POST };
 };

@@ -16,9 +16,11 @@ export const IntroImg = styled.img`
   width: 40%;
   height: 12rem;
   border-right: 2px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 `;
 
 export const IntroTitle = styled.h4`
   margin: 1rem;
   text-align: center;
+  cursor: pointer;
 `;

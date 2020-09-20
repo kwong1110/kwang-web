@@ -28,7 +28,24 @@ router.get("/:postType/:page", (req, res) => {
   });
 });
 
-router.post("/:postType/create", (req, res) => {
+router.get("/:postId", (req, res) => {
+  let { postId } = req.params;
+
+  Post.findOne({ _id: postId }, (err, post) => {
+    if (!post) {
+      return res.json({
+        success: false,
+        message: "존재하지 않는 게시글 입니다.",
+      });
+    }
+    if (err) return res.json({ suceess: false, err });
+    return res.status(200).json({
+      data: post,
+    });
+  });
+});
+
+router.post("/:postType", (req, res) => {
   req.body.type = req.params.postType;
   const post = new Post(req.body);
 
