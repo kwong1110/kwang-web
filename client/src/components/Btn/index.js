@@ -20,23 +20,21 @@ function iconHandler(icon) {
 function Btn({ children, color, size, outline, fullWidth, icon, ...rest }) {
   if (icon) {
     return (
-      <>
-        <S.IconBtn
-          color={color}
-          outline={outline}
-          data-tip={children}
-          data-place="bottom"
-          data-effect="solid"
-          data-iscapture="false"
-          data-arrow-color="rgba(0, 0, 0, 0)"
-          data-text-color="rgba(255, 255, 255, 0.6)"
-          data-background-color="rgba(0, 0, 0, 0.2)"
-          {...rest}
-        >
-          {iconHandler(icon)}
-        </S.IconBtn>
+      <S.IconBtn
+        color={color}
+        outline={outline}
+        data-tip={children}
+        data-place="bottom"
+        data-effect="solid"
+        data-iscapture="false"
+        data-arrow-color="rgba(0, 0, 0, 0)"
+        data-text-color="rgba(255, 255, 255, 0.9)"
+        data-background-color="rgba(0, 0, 0, 0.7)"
+        {...rest}
+      >
+        {iconHandler(icon)}
         <ReactTooltip />
-      </>
+      </S.IconBtn>
     );
   }
   return (

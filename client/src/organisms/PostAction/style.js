@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
-export const PostCreateForm = styled.form`
-  width: 100%;
-  text-align: center;
-  margin: 2rem;
+export const PreviewBox = styled.div`
+  display: inline-flex;
+`;
+
+export const PreviewImg = styled.img`
+  width: 40%;
+  height: 12rem;
 `;

@@ -3,19 +3,13 @@ import theme from "../../commons/Themes";
 
 export const IntroTextBox = styled.div`
   ${theme.interval.atom};
+  border-left: 2px solid rgba(0, 0, 0, 0.1);
   width: 55%;
-`;
-
-export const IntroBtnBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 `;
 
 export const IntroImg = styled.img`
   width: 40%;
   height: 12rem;
-  border-right: 2px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
 `;
 
