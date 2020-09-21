@@ -4,9 +4,9 @@ import styled from "styled-components";
 
 const StyledDiv = styled.div`
   ${theme.interval.box};
+  ${theme.boxShadow};
   display: flex;
   border-radius: 10px;
-  ${theme.boxShadow};
 `;
 
 function ShadowDiv({ children }) {

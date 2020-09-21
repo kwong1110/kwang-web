@@ -24,7 +24,7 @@ const theme = {
   interval: {
     menu: "margin-left: 3rem",
     btn: "margin-left: 1rem",
-    bottomLine: "padding: 0.2rem",
+    bottomLine: "padding: 0.3rem",
     atom: `
       padding: 0.5rem 0.5rem 0.5rem 0.5rem; 
       margin: 0 1rem 0.5rem 1rem

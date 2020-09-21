@@ -11,4 +11,8 @@ export const StyledInput = styled.input`
   &:focus {
     outline-color: ${theme.palette.emphasis[2]};
   }
+
+  &[type="file"] {
+    display: none;
+  }
 `;

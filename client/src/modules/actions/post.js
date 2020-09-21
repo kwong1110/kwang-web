@@ -37,7 +37,7 @@ export const createPost = async (body, param) => {
 };
 
 export const editPost = async (body, param) => {
-  const response = await axios.post(`/api/posts/${param}/edit`, body);
+  const response = await axios.put(`/api/posts/${param}/edit`, body);
 
   return {
     type: EDIT_POST,
