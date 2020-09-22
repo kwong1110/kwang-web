@@ -46,7 +46,6 @@ function App() {
           />
           <Route path="/contact" component={Auth(Contact, null)} exact />
           <Route path="/login" component={Auth(Login, false)} exact />
-
           <Route path="*" component={Auth(ErrorPage, null)} />
         </Switch>
       </Contant>
