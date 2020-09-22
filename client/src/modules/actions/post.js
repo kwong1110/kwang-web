@@ -5,6 +5,7 @@ import {
   EDIT_POST,
   GET_POST,
   CLEAR_POST,
+  DELETE_POST,
 } from "./types";
 
 export const getPosts = async (param) => {
@@ -36,11 +37,20 @@ export const createPost = async (body, param) => {
   };
 };
 
-export const editPost = async (body, param) => {
-  const response = await axios.put(`/api/posts/${param}/edit`, body);
+export const editPost = async (body, postId) => {
+  const response = await axios.put(`/api/posts/${postId}`, body);
 
   return {
     type: EDIT_POST,
+    payload: response.data,
+  };
+};
+
+export const deletePost = async (postId) => {
+  const response = await axios.delete(`/api/posts/${postId}`);
+
+  return {
+    type: DELETE_POST,
     payload: response.data,
   };
 };

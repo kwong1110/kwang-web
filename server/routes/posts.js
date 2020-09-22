@@ -57,4 +57,27 @@ router.post("/:postType", (req, res) => {
   });
 });
 
+router.put("/:postId", (req, res) => {
+  let { postId } = req.params;
+
+  Post.findOneAndUpdate({ _id: postId }, req.body, (err, post) => {
+    if (err) return res.json({ success: false, err });
+    return res.status(200).json({
+      success: true,
+      data: post,
+    });
+  });
+});
+
+router.delete("/:postId", (req, res) => {
+  let { postId } = req.params;
+
+  Post.remove({ _id: postId }, (err) => {
+    if (err) return res.json({ success: false, err });
+    return res.status(200).json({
+      success: true,
+    });
+  });
+});
+
 module.exports = router;

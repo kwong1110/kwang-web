@@ -26,6 +26,9 @@ const postSchema = mongoose.Schema({
   githubURL: {
     type: String,
   },
+  siteURL: {
+    type: String,
+  },
   createDate: {
     type: Date,
     default: Date.now,
