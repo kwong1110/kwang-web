@@ -15,6 +15,7 @@ function Contact() {
     console.log("취소");
     setDialog(false);
   };
+
   return (
     <>
       <SubTitle titleName={Contact} />

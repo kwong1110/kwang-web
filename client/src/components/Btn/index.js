@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./style";
-import { GoPlus } from "react-icons/go";
+import { GoPlus, GoMarkGithub, GoLinkExternal } from "react-icons/go";
 import { AiOutlineForm, AiOutlineClose } from "react-icons/ai";
 import ReactTooltip from "react-tooltip";
 
@@ -12,6 +12,10 @@ function iconHandler(icon) {
       return <AiOutlineClose />;
     case "update":
       return <AiOutlineForm />;
+    case "github":
+      return <GoMarkGithub />;
+    case "link":
+      return <GoLinkExternal />;
     default:
       return;
   }

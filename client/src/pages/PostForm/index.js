@@ -15,7 +15,7 @@ function PostForm() {
         alert("작성 성공");
         history.push("/posts/project");
       } else {
-        alert(response.payload.message);
+        alert(response.payload.err);
       }
     });
   };

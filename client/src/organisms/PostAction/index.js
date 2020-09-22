@@ -6,13 +6,14 @@ import { ErrorPage } from "../../pages";
 import useInputs from "../../hooks/useInputs";
 import { SubTitle } from "../../organisms";
 import { Input, Btn, ShadowDiv, DefaultForm } from "../../components";
-
-import "codemirror/lib/codemirror.css";
-import "@toast-ui/editor/dist/toastui-editor.css";
-import { Editor } from "@toast-ui/react-editor";
+import { PostEditor } from "../../lib/toast-ui-editor";
 
 function PostAction({ submitAction, actionName, originData = null }) {
-  const [image, setImage] = useState({ file: null, imgPath: null });
+  // 이미지 업로드
+  const [image, setImage] = useState({
+    file: null,
+    imgPath: originData ? originData.imgPath : null,
+  });
 
   const imageHandler = (event) => {
     event.preventDefault();
@@ -26,23 +27,30 @@ function PostAction({ submitAction, actionName, originData = null }) {
     };
     reader.readAsDataURL(file);
   };
+
+  // url업로드
+  const [urlForm, setURLForm] = useState(false);
+  const urlFormHandler = () => {
+    setURLForm(!urlForm);
+  };
+
   //
   const { _id } = useSelector((state) => state.user.userData);
 
   const editorRef = createRef();
-  let editorInitialValue = "##### 기간 : 2020.09.00 ~ 2020.00.00";
 
   let initialState = {
     title: "",
   };
 
+  let content = "";
   if (originData) {
     initialState.title = originData.title;
-    editorInitialValue = originData.content;
+    content = originData.content;
   }
 
   const [form, onChange, reset] = useInputs(initialState);
-  const { title } = form;
+  const { title, githubURL, siteURL } = form;
 
   const postHandler = (event) => {
     event.preventDefault();
@@ -77,28 +85,42 @@ function PostAction({ submitAction, actionName, originData = null }) {
             placeholder="제목을 입력해주세요."
           />
           <S.PreviewBox>
+            <S.PreviewBtn type="button" onClick={urlFormHandler}>
+              참고 사이트 / GitHub 주소 등록
+            </S.PreviewBtn>
+            {urlForm && (
+              <div>
+                <Input
+                  name="githubURL"
+                  value={githubURL}
+                  onChange={onChange}
+                  placeholder="gitHub 주소를 입력해주세요."
+                />
+                <Input
+                  name="siteURL"
+                  value={siteURL}
+                  onChange={onChange}
+                  placeholder="사이트 주소를 입력해주세요."
+                />
+              </div>
+            )}
+          </S.PreviewBox>
+          <S.PreviewBox>
+            <S.PreviewBtn type="button" style={{ marginBottom: "1.5rem" }}>
+              <label htmlFor="imgUpload">대표 이미지 등록</label>
+            </S.PreviewBtn>
             {image.imgPath && (
               <S.PreviewImg src={image.imgPath} alt="postMainImage" />
             )}
-            <Btn type="button" style={{ marginBottom: "1.5rem" }}>
-              <label htmlFor="imgUpload">대표 이미지 등록</label>
-            </Btn>
+            <Input
+              id="imgUpload"
+              type="file"
+              accept="image/*"
+              name="imgPath"
+              onChange={imageHandler}
+            />
           </S.PreviewBox>
-          <Input
-            id="imgUpload"
-            type="file"
-            accept="image/*"
-            name="imgPath"
-            onChange={imageHandler}
-          />
-          <Editor
-            name="content"
-            previewStyle="vertical"
-            height="530px"
-            initialEditType="wysiwyg"
-            initialValue={editorInitialValue}
-            ref={editorRef}
-          />
+          <PostEditor content={content} editorRef={editorRef} />
           <Btn type="submit" style={{ marginTop: "1.5rem" }}>
             작성완료
           </Btn>

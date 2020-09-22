@@ -4,6 +4,7 @@ import {
   EDIT_POST,
   GET_POST,
   CLEAR_POST,
+  DELETE_POST,
 } from "../actions/types";
 
 const initialState = {
@@ -30,6 +31,11 @@ export default function (state = initialState, action) {
     case EDIT_POST:
       return {
         ...state,
+      };
+    case DELETE_POST:
+      return {
+        ...state,
+        post: initialState.post,
       };
     case CLEAR_POST:
       return {

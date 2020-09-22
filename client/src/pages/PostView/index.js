@@ -1,19 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
+import logo from "../../images/logo.svg";
 import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { createPost, getPost, clearPost } from "../../modules/actions/post";
+import {
+  editPost,
+  getPost,
+  clearPost,
+  deletePost,
+} from "../../modules/actions/post";
 import { PostAction } from "../../organisms";
 import { ShadowDiv, DefaultForm, Btn } from "../../components";
-
-import "codemirror/lib/codemirror.css";
-import "@toast-ui/editor/dist/toastui-editor.css";
-import { Editor, Viewer } from "@toast-ui/react-editor";
+import { PostViewer } from "../../lib/toast-ui-editor";
 
 function PostView() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { type, postId } = useParams();
+  const { postId } = useParams();
 
   const { data } = useSelector((state) => state.post.post);
 
@@ -24,46 +27,74 @@ function PostView() {
     };
   }, [dispatch, postId]);
 
+  const [onEdit, setOnEdit] = useState(false);
+
   const editHandler = (body) => {
-    dispatch(createPost(body, type)).then((response) => {
+    dispatch(editPost(body, postId)).then((response) => {
       if (response.payload.success) {
         alert("수정 성공");
-        history.push("/");
+        history.push(`/posts/project`);
       } else {
         alert(response.payload.message);
       }
     });
   };
+
+  const deleteHandler = () => {
+    if (window.confirm("정말 삭제하시겠습니까? \n삭제 후 복구가 불가능합니다."))
+      dispatch(deletePost(postId)).then((response) => {
+        if (response.payload.success) {
+          alert("삭제 성공");
+          history.push(`/posts/project`);
+        } else {
+          alert(response.payload.message);
+        }
+      });
+  };
+
   if (!data) return null;
+  const { title, content, imgPath } = data;
+
   return (
     <>
-      <ShadowDiv>
-        <DefaultForm>
-          <S.PostTitleBox>
-            <S.PostTitle>{data.title}</S.PostTitle>
-            <div>
-              <Btn type="button" icon="update" color="gray">
-                수정
-              </Btn>
-              <Btn type="button" icon="delete" color="reject">
-                삭제
-              </Btn>
-            </div>
-          </S.PostTitleBox>
-          <S.PostContentBox>
-            <S.PostMainImg src={data.imgPath} alt="postMainImage" />
-            <Viewer initialValue={data.content} />
-          </S.PostContentBox>
-        </DefaultForm>
-      </ShadowDiv>
-      {/* <PostAction
-        submitAction={editHandler}
-        actionName="수정"
-        originData={data}
-      /> */}
-      {/* <Btn type="submit" style={{ marginTop: "1.5rem" }}>
-            작성완료
-          </Btn> */}
+      {!onEdit && (
+        <ShadowDiv>
+          <DefaultForm>
+            <S.PostTitleBox>
+              <S.PostTitle>{title}</S.PostTitle>
+              <div>
+                <Btn
+                  type="button"
+                  icon="update"
+                  color="gray"
+                  onClick={() => setOnEdit(!onEdit)}
+                >
+                  수정
+                </Btn>
+                <Btn
+                  type="button"
+                  icon="delete"
+                  color="reject"
+                  onClick={deleteHandler}
+                >
+                  삭제
+                </Btn>
+              </div>
+            </S.PostTitleBox>
+            <S.PostContentBox>
+              <S.PostMainImg src={imgPath || logo} alt="postMainImage" />
+              <PostViewer content={content} />
+            </S.PostContentBox>
+          </DefaultForm>
+        </ShadowDiv>
+      )}
+      {onEdit && (
+        <PostAction
+          submitAction={editHandler}
+          actionName="수정"
+          originData={data}
+        />
+      )}
     </>
   );
 }
