@@ -41,6 +41,8 @@ function PostAction({ submitAction, actionName, originData = null }) {
 
   let initialState = {
     title: "",
+    githubURL: "",
+    siteURL: "",
   };
 
   let content = "";
