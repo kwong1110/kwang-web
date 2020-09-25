@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { getPosts } from "../../modules/actions/post";
 import { Btn, DefaultDiv } from "../../components";
 import { SubTitle, IntroPostLIst } from "../../organisms";
@@ -14,7 +14,13 @@ function Project() {
     history.push("project/form");
   };
 
-  const { data } = useSelector((state) => state.post.project);
+  const { data, userData } = useSelector(
+    (state) => ({
+      data: state.post.project.data,
+      userData: state.user.userData,
+    }),
+    shallowEqual
+  );
 
   useEffect(() => {
     const param = {
@@ -33,11 +39,13 @@ function Project() {
   return (
     <>
       <SubTitle titleName={Project} />
-      <DefaultDiv>
-        <Btn icon="plus" onClick={createPostHandler}>
-          프로젝트 추가
-        </Btn>
-      </DefaultDiv>
+      {userData && userData.isAuth && (
+        <DefaultDiv>
+          <Btn icon="plus" onClick={createPostHandler}>
+            프로젝트 추가
+          </Btn>
+        </DefaultDiv>
+      )}
       {data.length === 0 && <NotData />}
       <IntroPostLIst posts={data} />
     </>

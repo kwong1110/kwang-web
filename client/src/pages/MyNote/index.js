@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { getPosts } from "../../modules/actions/post";
 import { Btn, DefaultDiv } from "../../components";
 import { SubTitle, ImgPostList } from "../../organisms";
@@ -14,7 +14,13 @@ function MyNote() {
     history.push("mynote/form");
   };
 
-  const { data } = useSelector((state) => state.post.mynote);
+  const { data, userData } = useSelector(
+    (state) => ({
+      data: state.post.mynote.data,
+      userData: state.user.userData,
+    }),
+    shallowEqual
+  );
 
   useEffect(() => {
     const param = {
@@ -30,11 +36,13 @@ function MyNote() {
   return (
     <>
       <SubTitle titleName={MyNote} />
-      <DefaultDiv>
-        <Btn icon="plus" onClick={createPostHandler}>
-          노트 추가
-        </Btn>
-      </DefaultDiv>
+      {userData && userData.isAuth && (
+        <DefaultDiv>
+          <Btn icon="plus" onClick={createPostHandler}>
+            노트 추가
+          </Btn>
+        </DefaultDiv>
+      )}
       {data.length === 0 && <NotData />}
       <ImgPostList posts={data} />
     </>
