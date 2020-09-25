@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import * as S from "./style";
 import logo from "../../images/logo.svg";
 import { useHistory, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import {
   editPost,
   getPost,
@@ -11,25 +11,34 @@ import {
 } from "../../modules/actions/post";
 import { PostAction } from "../../organisms";
 import { ShadowDiv, DefaultForm, Btn } from "../../components";
-import { PostViewer } from "../../lib/toast-ui-editor";
+
+import "codemirror/lib/codemirror.css";
+import "@toast-ui/editor/dist/toastui-editor-viewer.css";
+import { Viewer } from "@toast-ui/react-editor";
 
 function PostView() {
   const history = useHistory();
   const dispatch = useDispatch();
   const { type, postId } = useParams();
 
-  const { data } = useSelector((state) => state.post.post);
+  const { data, userData } = useSelector(
+    (state) => ({
+      data: state.post.post.data,
+      userData: state.user.userData,
+    }),
+    shallowEqual
+  );
 
-  const fetchPost = () => {
+  const fetchPost = useCallback(() => {
     dispatch(getPost(postId));
-  };
+  }, [dispatch, postId]);
 
   useEffect(() => {
     fetchPost();
     return () => {
       dispatch(clearPost());
     };
-  }, [dispatch, postId]);
+  }, [dispatch, fetchPost]);
 
   const [onEdit, setOnEdit] = useState(false);
 
@@ -57,6 +66,9 @@ function PostView() {
       });
   };
 
+  // post 최신화를 위해 따로 작성(리렌더링)
+  const PostViewer = () => <Viewer initialValue={content} />;
+
   if (!data) return null;
   const { title, content, imgPath } = data;
 
@@ -67,24 +79,26 @@ function PostView() {
           <DefaultForm>
             <S.PostTitleBox>
               <S.PostTitle>{title}</S.PostTitle>
-              <div>
-                <Btn
-                  type="button"
-                  icon="update"
-                  color="gray"
-                  onClick={() => setOnEdit(!onEdit)}
-                >
-                  수정
-                </Btn>
-                <Btn
-                  type="button"
-                  icon="delete"
-                  color="reject"
-                  onClick={deleteHandler}
-                >
-                  삭제
-                </Btn>
-              </div>
+              {userData && userData.isAuth && (
+                <div>
+                  <Btn
+                    type="button"
+                    icon="update"
+                    color="gray"
+                    onClick={() => setOnEdit(!onEdit)}
+                  >
+                    수정
+                  </Btn>
+                  <Btn
+                    type="button"
+                    icon="delete"
+                    color="reject"
+                    onClick={deleteHandler}
+                  >
+                    삭제
+                  </Btn>
+                </div>
+              )}
             </S.PostTitleBox>
             <S.PostContentBox>
               <S.PostMainImg src={imgPath || logo} alt="postMainImage" />

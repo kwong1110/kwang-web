@@ -12,10 +12,10 @@ function Header() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const user = useSelector((state) => state.user);
+  const { userData } = useSelector((state) => state.user);
 
   const [scrolling, firstScroll] = useScroll();
-  const [IsLogout, setIsLogout] = useState(false);
+  const [isLogout, setIsLogout] = useState(false);
 
   const goHome = () => {
     history.push("/");
@@ -26,6 +26,7 @@ function Header() {
       if (response.payload.success) {
         alert("로그아웃 되었습니다!");
         setIsLogout(true);
+        goHome();
       } else {
         alert(response.payload.message);
       }
@@ -51,7 +52,7 @@ function Header() {
           <S.MenuName>
             <Link to="/contact">Contact</Link>
           </S.MenuName>
-          {user.userData && user.userData.isAuth && !IsLogout && (
+          {userData && userData.isAuth && !isLogout && (
             <S.SideDiv>
               <Btn size="small" onClick={logoutHandler}>
                 로그아웃
