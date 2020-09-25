@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, useRouteMatch } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import * as S from "./style";
 import logo from "../../images/logo.svg";
 import { Btn } from "../../components";
@@ -11,12 +11,10 @@ import { Viewer } from "@toast-ui/react-editor";
 function IntroPost({ post, postId }) {
   const history = useHistory();
 
-  const currentPath = useRouteMatch().path;
-
   const { title, content, imgPath } = post;
 
   const postViewHandler = () => {
-    history.push(`${currentPath}/${postId}`);
+    history.push(`/posts/project/${postId}`);
   };
 
   // post 최신화를 위해 따로 작성(리렌더링)
