@@ -7,3 +7,4 @@ export { default as Login } from "./Login";
 export { default as PostForm } from "./PostForm";
 export { default as PostView } from "./PostView";
 export { default as ErrorPage } from "./ErrorPage";
+export { default as NotData } from "./NotData";

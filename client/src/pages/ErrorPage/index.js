@@ -1,11 +1,11 @@
 import React from "react";
 import { DefaultDiv } from "../../components";
-import { SubTitle } from "../../organisms/SubTitle/style";
+import { StyledSubTitle } from "../../organisms/SubTitle/style";
 
 function ErrorPage({ message }) {
   return (
     <DefaultDiv>
-      <SubTitle>{message}</SubTitle>
+      <StyledSubTitle>{message}</StyledSubTitle>
     </DefaultDiv>
   );
 }

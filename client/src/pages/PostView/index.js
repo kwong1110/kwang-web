@@ -16,7 +16,7 @@ import { PostViewer } from "../../lib/toast-ui-editor";
 function PostView() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { postId } = useParams();
+  const { type, postId } = useParams();
 
   const { data } = useSelector((state) => state.post.post);
 
@@ -33,7 +33,7 @@ function PostView() {
     dispatch(editPost(body, postId)).then((response) => {
       if (response.payload.success) {
         alert("수정 성공");
-        history.push(`/posts/project`);
+        history.push(`/posts/${type}/${postId}`);
       } else {
         alert(response.payload.message);
       }
@@ -45,7 +45,7 @@ function PostView() {
       dispatch(deletePost(postId)).then((response) => {
         if (response.payload.success) {
           alert("삭제 성공");
-          history.push(`/posts/project`);
+          history.push(`/posts/${type}`);
         } else {
           alert(response.payload.message);
         }
@@ -84,6 +84,26 @@ function PostView() {
             <S.PostContentBox>
               <S.PostMainImg src={imgPath || logo} alt="postMainImage" />
               <PostViewer content={content} />
+              <div>
+                {"githubURL" in data && (
+                  <Btn
+                    icon="github"
+                    color="gray"
+                    onClick={() => window.open(data.githubURL)}
+                  >
+                    GitHub으로 이동
+                  </Btn>
+                )}
+                {"siteURL" in data && (
+                  <Btn
+                    icon="link"
+                    color="gray"
+                    onClick={() => window.open(data.siteURL)}
+                  >
+                    사이트로 이동
+                  </Btn>
+                )}
+              </div>
             </S.PostContentBox>
           </DefaultForm>
         </ShadowDiv>

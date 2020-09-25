@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getPosts } from "../../modules/actions/post";
 import { Btn, DefaultDiv } from "../../components";
 import { SubTitle, IntroPostLIst } from "../../organisms";
+import NotData from "../NotData";
 
 function Project() {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ function Project() {
           프로젝트 추가
         </Btn>
       </DefaultDiv>
+      {data.length === 0 && <NotData />}
       <IntroPostLIst posts={data} />
     </>
   );

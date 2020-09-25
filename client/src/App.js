@@ -41,7 +41,7 @@ function App() {
           />
           <Route
             path="/posts/:type/:postId"
-            component={Auth(PostView, true)}
+            component={Auth(PostView, null)}
             exact
           />
           <Route path="/contact" component={Auth(Contact, null)} exact />

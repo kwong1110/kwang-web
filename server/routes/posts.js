@@ -6,7 +6,8 @@ router.get("/:postType/:page", (req, res) => {
   // console.log(req.params.postType);
   let postType = req.params.postType;
   let page = parseInt(req.params.page, 10);
-  let limit = req.limit ? parseInt(req.body.limit, 10) : 5;
+  let defaultLimit = 16;
+  let limit = req.limit ? parseInt(req.body.limit, 10) : defaultLimit;
   let skip = parseInt((page - 1) * 2);
 
   Post.countDocuments({ type: postType }, (err, count) => {

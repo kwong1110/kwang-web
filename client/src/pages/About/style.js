@@ -25,18 +25,19 @@ export const keywardBox = styled.div`
   ${theme.interval.atom};
 `;
 
-export const keyward = styled.h5`
+export const keyward = styled.div`
   display: inline;
   position: relative;
-  left: 50px;
-  padding: 0.5rem;
+  left: 55px;
+  padding: 0.7rem;
   border-radius: 10px;
-  background: ${theme.palette.decoGray[2]};
   color: white;
+  font-size: 1.1rem;
   font-weight: 700;
+  background-color: gray;
   text-align: center;
-  z-index: -1; /* 스크롤 시 메뉴바 뒤에 오기 위함. */
-  ${theme.boxShadow}
+  /* 스크롤 시 메뉴바 뒤에 오기 위함. */
+  z-index: -1;
 `;
 
 export const keywardContant = styled.div`
@@ -44,8 +45,7 @@ export const keywardContant = styled.div`
   top: -10px;
   left: 0px;
   padding: 2rem 1.2rem 1.2rem 1.2rem;
-  border: 2px solid ${theme.palette.decoGray[1]};
+  border: 2px solid rgba(170, 170, 170, 0.8);
   border-radius: 10px;
   z-index: -2;
-  ${theme.boxShadow};
 `;

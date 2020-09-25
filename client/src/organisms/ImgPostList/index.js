@@ -1,13 +1,13 @@
 import React from "react";
 import * as S from "./style";
+import ImgPost from "../ImgPost";
 
-function ImgPostList() {
+function ImgPostList({ posts }) {
   return (
     <S.GridContainer>
-      <div>MyNote 활용</div>
-      <div>sadasd</div>
-      <div>sadasd</div>
-      <div>sadasd</div>
+      {posts.map((post) => (
+        <ImgPost key={post._id} post={post} postId={post._id}></ImgPost>
+      ))}
     </S.GridContainer>
   );
 }

@@ -6,7 +6,7 @@ export const PostTitle = styled.h3`
 `;
 
 export const PostMainImg = styled.img`
-  width: 40%;
+  width: 50%;
 `;
 
 export const PostContentBox = styled.div`

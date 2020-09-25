@@ -6,13 +6,13 @@ function SubTitle({ titleName, action }) {
   if (action)
     return (
       <DefaultDiv>
-        <S.ActionSubTitle>{titleName}</S.ActionSubTitle>
+        <S.StyledActionSubTitle>{titleName}</S.StyledActionSubTitle>
       </DefaultDiv>
     );
 
   return (
     <DefaultDiv>
-      <S.SubTitle>{titleName.name}</S.SubTitle>
+      <S.StyledSubTitle>{titleName.name}</S.StyledSubTitle>
     </DefaultDiv>
   );
 }
