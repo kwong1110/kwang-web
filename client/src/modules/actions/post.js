@@ -16,6 +16,7 @@ export const getPosts = async (param) => {
 
   return {
     type: GET_POSTS,
+    postType: response.data.postType,
     payload: response.data,
   };
 };

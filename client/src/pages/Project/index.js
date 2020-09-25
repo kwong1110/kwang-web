@@ -14,7 +14,7 @@ function Project() {
     history.push("project/form");
   };
 
-  const { data } = useSelector((state) => state.post.posts);
+  const { data } = useSelector((state) => state.post.project);
 
   useEffect(() => {
     const param = {

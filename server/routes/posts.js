@@ -24,6 +24,7 @@ router.get("/:postType/:page", (req, res) => {
         return res.status(200).json({
           data: posts,
           maxPage: maxPage,
+          postType: postType,
         });
       });
   });

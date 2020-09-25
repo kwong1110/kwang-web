@@ -14,7 +14,7 @@ function MyNote() {
     history.push("mynote/form");
   };
 
-  const { data } = useSelector((state) => state.post.posts);
+  const { data } = useSelector((state) => state.post.mynote);
 
   useEffect(() => {
     const param = {
