@@ -6,7 +6,6 @@ import {
   GET_POST,
   CLEAR_POST,
   DELETE_POST,
-  CLEAR_POSTS,
 } from "./types";
 
 export const getPosts = async (param) => {
@@ -59,8 +58,4 @@ export const deletePost = async (postId) => {
 
 export const clearPost = () => {
   return { type: CLEAR_POST };
-};
-
-export const clearPosts = () => {
-  return { type: CLEAR_POSTS };
 };

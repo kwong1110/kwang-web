@@ -5,7 +5,6 @@ import {
   GET_POST,
   CLEAR_POST,
   DELETE_POST,
-  CLEAR_POSTS,
 } from "../actions/types";
 
 const initialState = {
@@ -51,11 +50,6 @@ export default function (state = initialState, action) {
       return {
         ...state,
         post: initialState.post,
-      };
-    case CLEAR_POSTS:
-      return {
-        ...state,
-        posts: initialState.posts,
       };
     default:
       return state;

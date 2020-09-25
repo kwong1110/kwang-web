@@ -1,17 +1,15 @@
 import React from "react";
-import { useHistory, useRouteMatch } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import * as S from "./style";
 import logo from "../../images/logo.svg";
 
 function ImgPost({ post, postId }) {
   const history = useHistory();
 
-  const currentPath = useRouteMatch().path;
-
   const { title, imgPath } = post;
 
   const postViewHandler = () => {
-    history.push(`${currentPath}/${postId}`);
+    history.push(`/posts/mynote/${postId}`);
   };
 
   return (

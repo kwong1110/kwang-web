@@ -20,8 +20,12 @@ function PostView() {
 
   const { data } = useSelector((state) => state.post.post);
 
-  useEffect(() => {
+  const fetchPost = () => {
     dispatch(getPost(postId));
+  };
+
+  useEffect(() => {
+    fetchPost();
     return () => {
       dispatch(clearPost());
     };
@@ -33,7 +37,8 @@ function PostView() {
     dispatch(editPost(body, postId)).then((response) => {
       if (response.payload.success) {
         alert("수정 성공");
-        history.push(`/posts/${type}/${postId}`);
+        setOnEdit(false);
+        fetchPost();
       } else {
         alert(response.payload.message);
       }
