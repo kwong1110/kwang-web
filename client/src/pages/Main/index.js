@@ -8,13 +8,6 @@ function Main() {
       <Project />
       <MyNote />
       <Contact />
-      <p>
-        <br />
-        <br />
-        스크롤 테스트 (Main 직접 작성)
-        <br />
-        <br />ㅁ
-      </p>
     </>
   );
 }

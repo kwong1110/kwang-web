@@ -2,7 +2,7 @@ import React from "react";
 import theme from "../commons/Themes";
 import styled from "styled-components";
 
-const StyledDiv = styled.div`
+export const StyledShadowDiv = styled.div`
   ${theme.interval.box};
   ${theme.boxShadow};
   display: flex;
@@ -10,7 +10,7 @@ const StyledDiv = styled.div`
 `;
 
 function ShadowDiv({ children }) {
-  return <StyledDiv>{children}</StyledDiv>;
+  return <StyledShadowDiv>{children}</StyledShadowDiv>;
 }
 
 export default ShadowDiv;

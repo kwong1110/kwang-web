@@ -48,6 +48,8 @@ function PostAction({ submitAction, actionName, originData = null }) {
   let content = "";
   if (originData) {
     initialState.title = originData.title;
+    initialState.githubURL = originData.githubURL;
+    initialState.siteURL = originData.siteURL;
     content = originData.content;
   }
 
@@ -63,6 +65,11 @@ function PostAction({ submitAction, actionName, originData = null }) {
       imgPath: image.imgPath,
       content: editorRef.current.getInstance().getHtml(),
     };
+
+    if (urlForm) {
+      body.githubURL = githubURL;
+      body.siteURL = siteURL;
+    }
 
     submitAction(body);
     reset();

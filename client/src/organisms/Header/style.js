@@ -26,6 +26,7 @@ export const StyledHeader = styled.header`
   height: 8rem;
   background-color: rgba(255 255 255 0.9);
   backdrop-filter: blur(3px);
+  z-index: 99;
 
   animation-name: ${upMove};
   /* 첫 스크롤 시에는 애니메이션이 없도록 name만 따로 빼주었다.*/

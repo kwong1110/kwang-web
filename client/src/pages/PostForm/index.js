@@ -13,7 +13,7 @@ function PostForm() {
     dispatch(createPost(body, type)).then((response) => {
       if (response.payload.success) {
         alert("작성 성공");
-        history.push("/posts/project");
+        history.push(`/posts/${type}`);
       } else {
         alert(response.payload.err);
       }

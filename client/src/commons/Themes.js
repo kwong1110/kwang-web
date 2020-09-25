@@ -1,8 +1,8 @@
 const theme = {
   bodySize: {
     margin: "auto",
-    padding: "0 6rem 0 6rem",
-    maxWidth: "85rem",
+    padding: "0 4rem 0 4rem",
+    maxWidth: "90rem",
   },
   fontStyle: {
     subTitle1: `
@@ -11,12 +11,12 @@ const theme = {
       letter-spacing: 0.2rem;
     `,
     subTitle2: `
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 500;
-      letter-spacing: 0.05rem;
+      letter-spacing: 0.1rem;
     `,
     subTitle3: `
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 500;
       letter-spacing: 0.05rem;
     `,
@@ -46,8 +46,7 @@ const theme = {
     emphasis: ["#ffd8a8", "#ffa94d", "#fd7e14", "#e8590c"], // 주황
     decoGray: ["#dee2e6", "#adb5bd", "#868e96", "#495057"],
   },
-  boxShadow:
-    "box-shadow: 2px 2px rgba(0, 0, 0, 0.1), -7px 0 10px rgba(0, 0, 0, 0.1);",
+  boxShadow: "box-shadow: inset 0 0 0.4em 0 rgba(170, 170, 170, 0.8)",
 };
 
 export default theme;
