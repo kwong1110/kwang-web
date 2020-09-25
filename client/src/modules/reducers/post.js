@@ -9,7 +9,16 @@ import {
 } from "../actions/types";
 
 const initialState = {
-  posts: { data: null, maxPage: 1 },
+  mynote: {
+    data: null,
+    maxPage: 1,
+    postType: "mynote",
+  },
+  project: {
+    data: null,
+    maxPage: 1,
+    postType: "project",
+  },
   post: { data: null },
 };
 
@@ -18,7 +27,7 @@ export default function (state = initialState, action) {
     case GET_POSTS:
       return {
         ...state,
-        posts: action.payload,
+        [action.postType]: action.payload,
       };
     case GET_POST:
       return {
