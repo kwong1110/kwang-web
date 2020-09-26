@@ -32,7 +32,7 @@ export const keyward = styled.div`
   padding: 0.7rem;
   border-radius: 10px;
   color: white;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   background-color: gray;
   text-align: center;

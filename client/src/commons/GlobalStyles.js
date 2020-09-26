@@ -14,7 +14,7 @@ const GlobalStyles = createGlobalStyle`
     }
     body{
         background-color:#ffffff;
-        font-family: -apple-system, 'Segoe UI', Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-family: 'Open Sans', 'Noto Sans KR', sans-serif, -apple-system ;
         font-size: 16px;
     }
     input, button {
@@ -25,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
         outline: none;
     }
     h1, h2, h3, h4, h5, h6{
-        font-family: sans-serif;
+        font-family: 'Open Sans', 'Noto Sans KR';
     }
     h3 {
         ${theme.fontStyle.subTitle1};
@@ -43,6 +43,9 @@ const GlobalStyles = createGlobalStyle`
         display: block;
         width: 100%;
         height: 100%;
+    }
+    .tui-editor-contents {
+        font-size: 16px;
     }
 `;
 
