@@ -63,7 +63,15 @@ export const MenuDiv = styled.div`
   justify-content: center;
   align-items: center;
   color: ${theme.palette.decoGray[3]};
+  font-size: 1.1rem;
   font-weight: 400;
+  letter-spacing: 0.05rem;
+
+  ${({ scrolling }) =>
+    scrolling &&
+    css`
+      font-weight: 600;
+    `};
 `;
 
 export const SideDiv = styled.div`
@@ -75,12 +83,20 @@ export const SideDiv = styled.div`
 `;
 export const MainLogo = styled.img`
   width: auto;
-  height: 5rem;
+  height: 2.5rem;
   cursor: pointer;
 `;
 
-export const MenuName = styled.span`
-  font-size: 1.1rem;
+export const MenuName = styled.div`
+  &:hover {
+    font-weight: 600;
+    border-radius: 10px;
+    background-color: ${theme.palette.backPrimary};
+    transition: all linear 0.5s;
+  }
+  &:not(:hover) {
+    transition: all linear 0.5s;
+  }
   & + & {
     ${theme.interval.menu};
   }

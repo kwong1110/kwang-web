@@ -10,7 +10,7 @@ import {
   deletePost,
 } from "../../modules/actions/post";
 import { PostAction } from "../../organisms";
-import { ShadowDiv, DefaultForm, Btn } from "../../components";
+import { ShadowDiv, DefaultForm, Btn, DefaultDiv } from "../../components";
 
 import "codemirror/lib/codemirror.css";
 import "@toast-ui/editor/dist/toastui-editor-viewer.css";
@@ -103,7 +103,7 @@ function PostView() {
             <S.PostContentBox>
               <S.PostMainImg src={imgPath || logo} alt="postMainImage" />
               <PostViewer content={content} />
-              <div>
+              <DefaultDiv>
                 {"githubURL" in data && (
                   <Btn
                     icon="github"
@@ -122,7 +122,7 @@ function PostView() {
                     사이트로 이동
                   </Btn>
                 )}
-              </div>
+              </DefaultDiv>
             </S.PostContentBox>
           </DefaultForm>
         </ShadowDiv>

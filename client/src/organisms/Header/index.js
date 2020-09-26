@@ -33,13 +33,17 @@ function Header() {
     });
   };
 
+  const scrollReset = () => {
+    document.documentElement.scrollTop = 0;
+  };
+
   return (
     <S.StyledHeader scrolling={scrolling} firstScroll={firstScroll}>
       <S.NavDiv>
         <S.SideDiv>
           <S.MainLogo src={logo} alt="logo" onClick={goHome} />
         </S.SideDiv>
-        <S.MenuDiv>
+        <S.MenuDiv scrolling={scrolling} onClick={scrollReset}>
           <S.MenuName>
             <Link to="/about">About</Link>
           </S.MenuName>
