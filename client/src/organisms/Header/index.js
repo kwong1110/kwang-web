@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory, useLocation, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as S from "./style";
 import { Btn } from "../../components";
@@ -37,6 +37,15 @@ function Header() {
     document.documentElement.scrollTop = 0;
   };
 
+  const currentPath = useLocation().pathname;
+
+  const menus = [
+    { name: "About", path: "/about" },
+    { name: "Project", path: "/posts/project" },
+    { name: "Mynote", path: "/posts/mynote" },
+    { name: "Contact", path: "/contact" },
+  ];
+
   return (
     <S.StyledHeader scrolling={scrolling} firstScroll={firstScroll}>
       <S.NavDiv>
@@ -44,18 +53,15 @@ function Header() {
           <S.MainLogo src={logo} alt="logo" onClick={goHome} />
         </S.SideDiv>
         <S.MenuDiv scrolling={scrolling} onClick={scrollReset}>
-          <S.MenuName>
-            <Link to="/about">About</Link>
-          </S.MenuName>
-          <S.MenuName>
-            <Link to="/posts/project">Project</Link>
-          </S.MenuName>
-          <S.MenuName>
-            <Link to="/posts/mynote">Mynote</Link>
-          </S.MenuName>
-          <S.MenuName>
-            <Link to="/contact">Contact</Link>
-          </S.MenuName>
+          {menus.map((menu, index) => {
+            return (
+              <Link to={menu.path} key={index}>
+                <S.MenuLink isActive={currentPath === menu.path ? true : false}>
+                  {menu.name}
+                </S.MenuLink>
+              </Link>
+            );
+          })}
           {userData && userData.isAuth && !isLogout && (
             <S.SideDiv>
               <Btn size="small" onClick={logoutHandler}>

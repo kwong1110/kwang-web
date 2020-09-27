@@ -5,6 +5,10 @@ export const aboutBox = styled.div`
   ${theme.interval.pageBottom};
 `;
 
+export const profileImg = styled.img`
+  width: auto;
+`;
+
 export const skillImg = styled.img`
   width: auto;
   height: 5rem;

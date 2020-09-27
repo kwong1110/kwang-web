@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./style";
-import { GoPlus, GoMarkGithub, GoLinkExternal } from "react-icons/go";
+import { GoPlus, GoMarkGithub, GoLinkExternal, GoMail } from "react-icons/go";
 import { AiOutlineForm, AiOutlineClose } from "react-icons/ai";
 import ReactTooltip from "react-tooltip";
 
@@ -16,12 +16,23 @@ function iconHandler(icon) {
       return <GoMarkGithub />;
     case "link":
       return <GoLinkExternal />;
+    case "mail":
+      return <GoMail />;
     default:
       return;
   }
 }
 
-function Btn({ children, color, size, outline, fullWidth, icon, ...rest }) {
+function Btn({
+  children,
+  color,
+  size,
+  outline,
+  fullWidth,
+  icon,
+  tooltip,
+  ...rest
+}) {
   if (icon) {
     return (
       <S.IconBtn
@@ -37,7 +48,7 @@ function Btn({ children, color, size, outline, fullWidth, icon, ...rest }) {
         {...rest}
       >
         {iconHandler(icon)}
-        <ReactTooltip />
+        {tooltip && <ReactTooltip />}
       </S.IconBtn>
     );
   }
@@ -59,6 +70,7 @@ Btn.defaultProps = {
   size: "medium",
   fullWidth: false,
   outline: false,
+  tooltip: false,
 };
 
 export default Btn;

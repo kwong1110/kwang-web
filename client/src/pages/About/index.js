@@ -1,8 +1,9 @@
 import React from "react";
-import { SubTitle } from "../../organisms";
-import DefaultDiv from "../../components/DefaultDiv";
 import * as S from "./style";
+import profile from "../../images/profile.png";
 import javascript from "../../images/skills/javascript.svg";
+import { SubTitle } from "../../organisms";
+import { Btn, DefaultDiv } from "../../components";
 
 function About() {
   return (
@@ -10,17 +11,14 @@ function About() {
       <SubTitle titleName={About} />
       <S.subTitle2>profiles</S.subTitle2>
       <DefaultDiv>
-        <div>
-          <S.skillImg src={javascript} />
-          김광림
-          <br />
-          아이콘(github)
-        </div>
-        <div>
-          CAFE24 플랫폼을 통해 홈페이지를 운영하다 개발에 빠지게되었습니다.
-          <br />
-          현재는 지금 보시는 사이트를 REACT로 구현중에 있습니다.
-        </div>
+        <S.profileImg src={profile} alt="profile" />
+        김광림
+        <br />
+        <Btn
+          icon="github"
+          color="gray"
+          onClick={() => window.open("https://github.com/kwong1110")}
+        />
       </DefaultDiv>
       <DefaultDiv>
         <S.keywardBox>

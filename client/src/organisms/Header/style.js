@@ -70,7 +70,7 @@ export const MenuDiv = styled.div`
   ${({ scrolling }) =>
     scrolling &&
     css`
-      font-weight: 600;
+      font-weight: 500;
     `};
 `;
 
@@ -81,23 +81,33 @@ export const SideDiv = styled.div`
   margin-left: 1.5rem;
   margin-right: 1.5rem;
 `;
+
 export const MainLogo = styled.img`
   width: auto;
   height: 2.5rem;
   cursor: pointer;
 `;
 
-export const MenuName = styled.div`
+export const MenuLink = styled.div`
+  padding: 0.5rem;
+  border-bottom: ${theme.palette.backPrimary};
+  ${theme.interval.menu};
+
   &:hover {
-    font-weight: 600;
-    border-radius: 10px;
-    background-color: ${theme.palette.backPrimary};
-    transition: all linear 0.5s;
+    font-weight: 500;
+    border-bottom: 5px solid ${theme.palette.backPrimary};
+    border-radius: 5px;
+    transition: all linear 0.3s;
   }
   &:not(:hover) {
     transition: all linear 0.5s;
   }
-  & + & {
-    ${theme.interval.menu};
-  }
+
+  ${({ isActive }) =>
+    isActive &&
+    css`
+      font-weight: 500;
+      border-radius: 5px;
+      border-bottom: 5px solid ${theme.palette.backPrimary};
+    `};
 `;

@@ -41,7 +41,7 @@ function Project() {
       <SubTitle titleName={Project} />
       {userData && userData.isAuth && (
         <DefaultDiv>
-          <Btn icon="plus" onClick={createPostHandler}>
+          <Btn icon="plus" tooltip onClick={createPostHandler}>
             프로젝트 추가
           </Btn>
         </DefaultDiv>
