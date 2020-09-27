@@ -14,8 +14,11 @@ const GlobalStyles = createGlobalStyle`
     }
     body{
         background-color:#ffffff;
-        font-family: 'Open Sans', 'Noto Sans KR', sans-serif, -apple-system ;
+        font-family: 'Open Sans', 'Noto Sans KR', sans-serif, -apple-system;
         font-size: 16px;
+    }
+    header{
+        font-family: 'Mitr', sans-serif, -apple-system;
     }
     input, button {
         background-color: transparent;
@@ -25,7 +28,7 @@ const GlobalStyles = createGlobalStyle`
         outline: none;
     }
     h1, h2, h3, h4, h5, h6{
-        font-family: 'Open Sans', 'Noto Sans KR';
+        font-family: 'Open Sans', 'Noto Sans KR', sans-serif, -apple-system;
     }
     h3 {
         ${theme.fontStyle.subTitle1};

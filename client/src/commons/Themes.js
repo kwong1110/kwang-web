@@ -39,7 +39,7 @@ const theme = {
   },
   palette: {
     primary: "#ffa94d", // 주황
-    backPrimary: "rgba(255, 169, 77, 0.4)", // 연한 주황
+    backPrimary: "rgba(255, 169, 77, 0.5)", // 연한 주황
     success: "#69db7c", // 초록
     reject: "#ff6b6b", // 빨강
     black: "#212529",

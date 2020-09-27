@@ -38,7 +38,7 @@ function MyNote() {
       <SubTitle titleName={MyNote} />
       {userData && userData.isAuth && (
         <DefaultDiv>
-          <Btn icon="plus" onClick={createPostHandler}>
+          <Btn icon="plus" tooltip onClick={createPostHandler}>
             노트 추가
           </Btn>
         </DefaultDiv>

@@ -16,6 +16,8 @@ import "codemirror/lib/codemirror.css";
 import "@toast-ui/editor/dist/toastui-editor-viewer.css";
 import { Viewer } from "@toast-ui/react-editor";
 
+import ReactTooltip from "react-tooltip";
+
 function PostView() {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -134,6 +136,7 @@ function PostView() {
           originData={data}
         />
       )}
+      <ReactTooltip />
     </>
   );
 }

@@ -1,45 +1,32 @@
-import React, { useState } from "react";
-import { Dialog, SubTitle } from "../../organisms";
-import Btn from "../../components/Btn";
+import React from "react";
+import * as S from "./style";
+import { DefaultDiv } from "../../components";
+import { SubTitle } from "../../organisms";
+
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 function Contact() {
-  const [dialog, setDialog] = useState(false);
-  const onClick = () => {
-    setDialog(true);
-  };
-  const onConfirm = () => {
-    console.log("확인");
-    setDialog(false);
-  };
-  const onCancel = () => {
-    console.log("취소");
-    setDialog(false);
+  const copyHandler = () => {
+    alert("복사 되었습니다!");
   };
 
   return (
-    <>
+    <S.ContactBox>
       <SubTitle titleName={Contact} />
-      <Btn></Btn>
-      <Btn>확인</Btn>
-      <Btn color="success" size="large" onClick={onClick}>
-        모달!
-      </Btn>
-      <Btn color="reject" size="small">
-        취소
-      </Btn>
-      <Btn color="success" icon="delete" outline />
-
-      <Dialog
-        title="제목"
-        confirmText="삭제"
-        cancelText="취소"
-        onConfirm={onConfirm}
-        onCancel={onCancel}
-        visible={dialog}
-      >
-        내용
-      </Dialog>
-    </>
+      <DefaultDiv>
+        <CopyToClipboard text={"kwong8535@naver.com"}>
+          <S.ContactIconBtn
+            icon="mail"
+            color="black"
+            tooltip
+            onClick={copyHandler}
+          >
+            메일 복사
+          </S.ContactIconBtn>
+        </CopyToClipboard>
+      </DefaultDiv>
+      <h4>kwong8535@naver.com</h4>
+    </S.ContactBox>
   );
 }
 
