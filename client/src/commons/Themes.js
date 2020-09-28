@@ -11,12 +11,12 @@ const theme = {
       letter-spacing: 0.2rem;
     `,
     subTitle2: `
-      font-size: 1.4rem;
+      font-size: 1.55rem;
       font-weight: 550;
       letter-spacing: 0.1rem;
     `,
     subTitle3: `
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 500;
       letter-spacing: 0.05rem;
     `,
@@ -39,6 +39,7 @@ const theme = {
   },
   palette: {
     primary: "#ffa94d", // 주황
+    secondary: "#9ebbde", // 하늘 rgb(158, 187, 222)
     backPrimary: "rgba(255, 169, 77, 0.5)", // 연한 주황
     success: "#69db7c", // 초록
     reject: "#ff6b6b", // 빨강
