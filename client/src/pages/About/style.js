@@ -6,11 +6,14 @@ export const AboutBox = styled.div`
 `;
 
 export const ProfileBox = styled.div`
-  width: 45%;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  & + & {
+    margin-left: 5.5rem;
+  }
 `;
 export const ProfileImg = styled.img`
   width: auto;
@@ -18,10 +21,10 @@ export const ProfileImg = styled.img`
 `;
 
 export const SkillImg = styled.img`
-  width: auto;
-  height: 5rem;
+  width: 4.2rem;
+  height: 4.2rem;
   & + & {
-    margin-left: 1rem;
+    margin-left: 1.8rem;
   }
 `;
 
@@ -40,8 +43,9 @@ export const KeywardBox = styled.div`
 export const Keyward = styled.div`
   display: inline;
   position: relative;
-  left: 55px;
-  padding: 0.7rem;
+  top: 0.5rem;
+  left: 5rem;
+  padding: 0.6rem 0.9rem 0.6rem 0.9rem;
   border-radius: 10px;
   color: #fff;
   font-size: 1.2rem;
@@ -50,19 +54,24 @@ export const Keyward = styled.div`
   text-align: center;
   box-shadow: 0px 7px 17px rgba(0, 21, 64, 0.13);
   /* 스크롤 시 메뉴바 뒤에 오기 위함. */
+  z-index: 1;
+`;
+
+export const DashedBox = styled.div`
+  padding: 2rem 1.2rem 1.2rem 1.2rem;
+  line-height: 150%;
+  font-size: 1.05rem;
+  border: 3px dashed ${theme.palette.secondary};
+  border-radius: 10px;
+  box-shadow: 0px 7px 17px rgba(0, 21, 64, 0.13);
   z-index: -1;
 `;
 
-export const KeywardContant = styled.div`
-  position: relative;
+export const KeywardContant = styled(DashedBox)`
   white-space: pre;
-  line-height: 150%;
-  font-size: 1.05rem;
-  top: -10px;
-  left: 0px;
-  padding: 2.5rem 1.2rem 1.2rem 1.2rem;
-  border: 3px solid ${theme.palette.secondary};
-  border-radius: 10px;
-  box-shadow: 0px 7px 17px rgba(0, 21, 64, 0.13);
-  z-index: -2;
+  overflow: auto;
+`;
+
+export const SkillBox = styled(DashedBox)`
+  display: flex;
 `;

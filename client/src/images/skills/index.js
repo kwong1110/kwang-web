@@ -1,0 +1,12 @@
+export { default as css3 } from "./css3.svg";
+export { default as html } from "./html.svg";
+export { default as java } from "./java.svg";
+export { default as react } from "./react.svg";
+export { default as redux } from "./redux.svg";
+export { default as jquery } from "./jquery.svg";
+export { default as nodejs } from "./nodejs.svg";
+export { default as oracle } from "./oracle.svg";
+export { default as spring } from "./spring.svg";
+export { default as mongodb } from "./mongodb.svg";
+export { default as javascript } from "./javascript.svg";
+export { default as styledComponents } from "./styledComponents.svg";

@@ -4,29 +4,28 @@ import { DefaultDiv } from "../../components";
 import { SubTitle } from "../../organisms";
 
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import ReactTooltip from "react-tooltip";
 
-function Contact() {
+function Contact({ main }) {
   const copyHandler = () => {
     alert("복사 되었습니다!");
   };
 
   return (
-    <S.ContactBox>
-      <SubTitle titleName={Contact} />
-      <DefaultDiv>
-        <CopyToClipboard text={"kwong8535@naver.com"}>
-          <S.ContactIconBtn
-            icon="mail"
-            color="black"
-            tooltip
-            onClick={copyHandler}
-          >
-            메일 복사
-          </S.ContactIconBtn>
-        </CopyToClipboard>
-      </DefaultDiv>
-      <h4>kwong8535@naver.com</h4>
-    </S.ContactBox>
+    <>
+      <S.ContactBox>
+        <SubTitle titleName={Contact} />
+        <DefaultDiv>
+          <CopyToClipboard text={"kwong8535@naver.com"}>
+            <S.ContactIconBtn icon="mail" color="black" onClick={copyHandler}>
+              메일 복사
+            </S.ContactIconBtn>
+          </CopyToClipboard>
+        </DefaultDiv>
+        <h4>kwong8535@naver.com</h4>
+      </S.ContactBox>
+      {!main && <ReactTooltip />}
+    </>
   );
 }
 

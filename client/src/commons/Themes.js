@@ -34,7 +34,7 @@ const theme = {
       margin: 0.3rem 1.2rem 0.8rem 1.2rem;
     `,
     pageBottom: `
-      margin-bottom: 4.5rem;
+      margin-bottom: 4rem;
     `,
   },
   palette: {

@@ -6,7 +6,9 @@ import { Btn, DefaultDiv } from "../../components";
 import { SubTitle, IntroPostLIst } from "../../organisms";
 import NotData from "../NotData";
 
-function Project() {
+import ReactTooltip from "react-tooltip";
+
+function Project({ main }) {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -39,15 +41,16 @@ function Project() {
   return (
     <>
       <SubTitle titleName={Project} />
-      {userData && userData.isAuth && (
+      {!main && userData && userData.isAuth && (
         <DefaultDiv>
-          <Btn icon="plus" tooltip onClick={createPostHandler}>
+          <Btn icon="plus" onClick={createPostHandler}>
             프로젝트 추가
           </Btn>
         </DefaultDiv>
       )}
       {data.length === 0 && <NotData />}
       <IntroPostLIst posts={data} />
+      {!main && <ReactTooltip />}
     </>
   );
 }

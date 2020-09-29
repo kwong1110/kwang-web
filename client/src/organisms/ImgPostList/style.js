@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../../commons/Themes";
 
 export const GridContainer = styled.div`
   display: grid;
@@ -6,4 +7,5 @@ export const GridContainer = styled.div`
   row-gap: 1rem;
   column-gap: 1rem;
   grid-template-columns: repeat(4, 24%);
+  ${theme.interval.pageBottom};
 `;
