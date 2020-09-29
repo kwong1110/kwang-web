@@ -6,7 +6,9 @@ import { Btn, DefaultDiv } from "../../components";
 import { SubTitle, ImgPostList } from "../../organisms";
 import NotData from "../NotData";
 
-function MyNote() {
+import ReactTooltip from "react-tooltip";
+
+function MyNote({ main }) {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -36,15 +38,16 @@ function MyNote() {
   return (
     <>
       <SubTitle titleName={MyNote} />
-      {userData && userData.isAuth && (
+      {!main && userData && userData.isAuth && (
         <DefaultDiv>
-          <Btn icon="plus" tooltip onClick={createPostHandler}>
+          <Btn icon="plus" onClick={createPostHandler}>
             노트 추가
           </Btn>
         </DefaultDiv>
       )}
       {data.length === 0 && <NotData />}
       <ImgPostList posts={data} />
+      {!main && <ReactTooltip />}
     </>
   );
 }

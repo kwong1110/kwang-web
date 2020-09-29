@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import * as S from "./style";
 import logo from "../../images/logo.svg";
@@ -7,6 +7,7 @@ import { Btn } from "../../components";
 import "codemirror/lib/codemirror.css";
 import "@toast-ui/editor/dist/toastui-editor-viewer.css";
 import { Viewer } from "@toast-ui/react-editor";
+import ReactTooltip from "react-tooltip";
 
 function IntroPost({ post, postId }) {
   const history = useHistory();
@@ -19,6 +20,10 @@ function IntroPost({ post, postId }) {
 
   // post 최신화를 위해 따로 작성(리렌더링)
   const PostViewer = () => <Viewer initialValue={content} />;
+
+  useEffect(() => {
+    ReactTooltip.rebuild();
+  });
 
   return (
     <S.IntroBox>
