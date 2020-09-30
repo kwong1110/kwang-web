@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import theme from "./commons/Themes";
 import styled, { ThemeProvider } from "styled-components";
 import Auth from "./hoc/auth";
-import { Header } from "./organisms";
+import { Header, MainAnimation } from "./organisms";
 import {
   Main,
   About,
@@ -27,6 +27,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Header />
+      <Route path="/" component={MainAnimation} exact />
       <Contant>
         <Switch>
           <Route path="/" component={Auth(Main, null)} exact />
