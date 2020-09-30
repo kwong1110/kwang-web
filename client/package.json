@@ -9,6 +9,7 @@
     "@toast-ui/react-editor": "^2.4.0",
     "@toast-ui/vue-editor": "^2.4.0",
     "axios": "^0.20.0",
+    "gsap": "^3.5.1",
     "http-proxy-middleware": "^1.0.5",
     "polished": "^3.6.6",
     "qs": "^6.9.4",
@@ -26,7 +27,8 @@
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.1.1",
-    "styled-reset": "^4.2.2"
+    "styled-reset": "^4.2.2",
+    "three": "^0.120.1"
   },
   "scripts": {
     "start": "react-scripts start",

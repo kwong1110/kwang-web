@@ -6,3 +6,4 @@ export { default as PostAction } from "./PostAction";
 export { default as Dialog } from "./Dialog";
 export { default as IntroPost } from "./IntroPost";
 export { default as ImgPost } from "./ImgPost";
+export { default as MainAnimation } from "./MainAnimation";
