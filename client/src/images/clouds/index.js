@@ -1,0 +1,12 @@
+export { default as cloud1 } from "./cloud1.svg";
+export { default as cloud2 } from "./cloud2.svg";
+export { default as cloud3 } from "./cloud3.svg";
+export { default as cloud4 } from "./cloud4.svg";
+export { default as cloud5 } from "./cloud5.svg";
+export { default as cloud6 } from "./cloud6.svg";
+export { default as cloud7 } from "./cloud7.svg";
+export { default as cloud8 } from "./cloud8.svg";
+export { default as cloud9 } from "./cloud9.svg";
+export { default as cloud10 } from "./cloud10.svg";
+export { default as empty } from "./empty.svg";
+export { default as cloudTitle } from "./cloudTitle.svg";
