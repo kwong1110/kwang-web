@@ -17,7 +17,11 @@ function Contact({ main }) {
         <SubTitle titleName={Contact} />
         <DefaultDiv>
           <CopyToClipboard text={"kwong8535@naver.com"}>
-            <S.ContactIconBtn icon="mail" color="black" onClick={copyHandler}>
+            <S.ContactIconBtn
+              icon="mail"
+              color="secondary"
+              onClick={copyHandler}
+            >
               메일 복사
             </S.ContactIconBtn>
           </CopyToClipboard>
