@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/kwong1110/kwangWEB#readme",
   "engines": {
-    "node": "5.9.1"
+    "node": "12.18.2"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
