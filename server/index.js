@@ -33,6 +33,10 @@ app.use(cookieParser());
 app.use("/api/users", require("./routes/users"));
 app.use("/api/posts", require("./routes/posts"));
 
+app.get("/", (req, res) => {
+  res.send("Heroku deploy !!");
+});
+
 app.listen(app.get("port"), () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
