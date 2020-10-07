@@ -3,7 +3,7 @@ module.exports = function (app) {
   app.use(
     "/api",
     createProxyMiddleware({
-      target: "https://kwangweb.herokuapp.com/",
+      target: "https://kwangweb.herokuapp.com",
       changeOrigin: true,
     })
   );
