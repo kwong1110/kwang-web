@@ -33,14 +33,6 @@ app.use(cookieParser());
 app.use("/api/users", require("./routes/users"));
 app.use("/api/posts", require("./routes/posts"));
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client", "build")));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-  });
-}
-
-app.listen(port, () => {
+app.listen(app.get("port"), () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
