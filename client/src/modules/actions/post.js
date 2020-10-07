@@ -11,7 +11,7 @@ import {
 export const getPosts = async (param) => {
   const { postType, page } = param;
 
-  const response = await axios.get(`/api/posts/${postType}/${page}`);
+  const response = await axios.get(`/posts/${postType}/${page}`);
 
   return {
     type: GET_POSTS,
@@ -21,7 +21,7 @@ export const getPosts = async (param) => {
 };
 
 export const getPost = async (postId) => {
-  const response = await axios.get(`/api/posts/${postId}`);
+  const response = await axios.get(`/posts/${postId}`);
 
   return {
     type: GET_POST,
@@ -30,7 +30,7 @@ export const getPost = async (postId) => {
 };
 
 export const createPost = async (body, param) => {
-  const response = await axios.post(`/api/posts/${param}`, body);
+  const response = await axios.post(`/posts/${param}`, body);
 
   return {
     type: CREATE_POST,
@@ -39,7 +39,7 @@ export const createPost = async (body, param) => {
 };
 
 export const editPost = async (body, postId) => {
-  const response = await axios.put(`/api/posts/${postId}`, body);
+  const response = await axios.put(`/posts/${postId}`, body);
 
   return {
     type: EDIT_POST,
@@ -48,7 +48,7 @@ export const editPost = async (body, postId) => {
 };
 
 export const deletePost = async (postId) => {
-  const response = await axios.delete(`/api/posts/${postId}`);
+  const response = await axios.delete(`/posts/${postId}`);
 
   return {
     type: DELETE_POST,
