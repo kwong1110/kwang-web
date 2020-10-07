@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/kwong1110/kwangWEB/issues"
   },
-  "homepage": "https://github.com/kwong1110/kwangWEB#readme",
+  "homepage": "https://kwangweb.netlify.app",
   "engines": {
     "node": "12.18.2"
   },
