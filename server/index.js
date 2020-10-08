@@ -34,7 +34,7 @@ app.use("/api/users", require("./routes/users"));
 app.use("/api/posts", require("./routes/posts"));
 
 app.get("/", (req, res) => {
-  res.send("Heroku deploy !!");
+  res.send(`Heroku deploy !! ${port}`);
 });
 
 app.listen(app.get("port"), () => {
