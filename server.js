@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 5000;
+let path = require("path");
 const cors = require("cors");
 
 app.set("port", port);
@@ -32,9 +33,11 @@ app.use(cookieParser());
 
 app.use("/api/users", require("./server/routes/users"));
 app.use("/api/posts", require("./server/routes/posts"));
+app.use(express.static("client/build"));
 
-app.get("/", (req, res) => {
-  res.send(`Heroku deploy !! ${port}`);
+app.get("/ss", (req, res) => {
+  // res.send(`Heroku deploy !! ${port}`);
+  res.sendFile(path.resolve(__dirname, "index.html"));
 });
 
 if (process.env.NODE_ENV === "production") {
