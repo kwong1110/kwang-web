@@ -12,7 +12,7 @@ export const getPosts = async (param) => {
   const { postType, page } = param;
 
   // const response = await axios.get(`/api/posts/${postType}/${page}`);
-  const response = await axios.get(`/api/${postType}/${page}`);
+  const response = await axios.get(`/api/posts/${postType}/${page}`);
 
   return {
     type: GET_POSTS,
