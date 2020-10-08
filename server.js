@@ -8,7 +8,7 @@ app.set("port", port);
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
-const config = require("./config/key");
+const config = require("./server/config/key");
 
 const mongoose = require("mongoose");
 mongoose
@@ -30,18 +30,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use("/api/users", require("./routes/users"));
-app.use("/api/posts", require("./routes/posts"));
+app.use("/api/users", require("./server/routes/users"));
+app.use("/api/posts", require("./server/routes/posts"));
 
 app.get("/", (req, res) => {
   res.send(`Heroku deploy !! ${port}`);
 });
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build/"));
+  app.use(express.static("client/build"));
 
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.resolve(__dirname, "/client/build/index.html"));
   });
 }
 
