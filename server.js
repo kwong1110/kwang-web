@@ -33,15 +33,8 @@ app.use(cookieParser());
 
 app.use("/api/users", require("./server/routes/users"));
 app.use("/api/posts", require("./server/routes/posts"));
-app.use(express.static("client/build"));
-
-app.get("/ss", (req, res) => {
-  // res.send(`Heroku deploy !! ${port}`);
-  res.sendFile(path.resolve(__dirname, "index.html"));
-});
 
 if (process.env.NODE_ENV === "production") {
-  console.log(1);
   app.use(express.static("client/build"));
 
   app.get("*", (req, res) => {
