@@ -40,7 +40,7 @@ function Project({ main }) {
 
   return (
     <>
-      <SubTitle titleName={Project} />
+      <SubTitle titleName={"Project"} />
       {!main && userData && userData.isAuth && (
         <DefaultDiv>
           <Btn icon="plus" onClick={createPostHandler}>

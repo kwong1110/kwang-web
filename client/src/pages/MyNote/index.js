@@ -37,7 +37,7 @@ function MyNote({ main }) {
 
   return (
     <>
-      <SubTitle titleName={MyNote} />
+      <SubTitle titleName={"MyNote"} />
       {!main && userData && userData.isAuth && (
         <DefaultDiv>
           <Btn icon="plus" onClick={createPostHandler}>

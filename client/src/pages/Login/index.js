@@ -40,7 +40,7 @@ function Login() {
   return (
     <DefaultDiv>
       <S.LoginForm onSubmit={loginHandler}>
-        <SubTitle titleName={Login} />
+        <SubTitle titleName={"Login"} />
         <Input
           name="email"
           value={email}
