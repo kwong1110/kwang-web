@@ -14,7 +14,7 @@ function Contact({ main }) {
   return (
     <>
       <S.ContactBox>
-        <SubTitle titleName={Contact} />
+        <SubTitle titleName={"Contact"} />
         <DefaultDiv>
           <CopyToClipboard text={"kwong8535@naver.com"}>
             <S.ContactIconBtn

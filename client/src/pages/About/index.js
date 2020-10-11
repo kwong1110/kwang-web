@@ -43,7 +43,7 @@ function About({ main }) {
   return (
     <>
       <S.AboutBox>
-        <SubTitle titleName={About} />
+        <SubTitle titleName={"About"} />
         <S.SubTitle2>profiles</S.SubTitle2>
         <DefaultDiv>
           <S.ProfileBox>

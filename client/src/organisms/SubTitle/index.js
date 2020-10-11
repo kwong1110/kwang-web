@@ -12,13 +12,12 @@ function SubTitle({ titleName, action }) {
 
   return (
     <DefaultDiv>
-      <S.StyledSubTitle>{titleName.name}</S.StyledSubTitle>
+      <S.StyledSubTitle>{titleName}</S.StyledSubTitle>
     </DefaultDiv>
   );
 }
 
 SubTitle.defaultProps = {
-  titleName: SubTitle,
   action: false,
 };
 
