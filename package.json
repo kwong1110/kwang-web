@@ -19,7 +19,6 @@
   "bugs": {
     "url": "https://github.com/kwong1110/kwangWEB/issues"
   },
-  "homepage": "https://kwang.ga",
   "engines": {
     "node": "12.18.2"
   },
@@ -37,5 +36,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  }
+  },
+  "homepage": "https://kwang.ga/relativepath"
 }
