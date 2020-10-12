@@ -39,9 +39,8 @@ app.use("/api/users", require("./server/routes/users"));
 app.use("/api/posts", require("./server/routes/posts"));
 
 if (process.env.NODE_ENV === "production") {
-  app.use(favicon(path.join(__dirname, "/client/bulid", "favicon.ico")));
-
   app.use(express.static(path.join(__dirname, "/client/build")));
+  app.use(favicon(path.join(__dirname, "/client/bulid", "favicon.ico")));
 
   app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, "/client/build", "index.html"));
