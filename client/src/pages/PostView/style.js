@@ -6,8 +6,13 @@ export const PostTitle = styled.h3`
 `;
 
 export const PostMainImg = styled.img`
-  width: 50%;
+  width: auto;
 `;
+
+export const PostForm = styled.form`
+  width: 100%;
+  margin: 2rem;
+`
 
 export const PostContentBox = styled.div`
   display: flex;
