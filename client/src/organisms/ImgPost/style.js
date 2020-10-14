@@ -9,7 +9,7 @@ export const ImgPostImg = styled.img`
 `;
 
 export const ImgPostTitle = styled.h5`
-  margin: 1rem;
+  margin: 0.2rem;
   text-align: center;
   cursor: pointer;
 `;

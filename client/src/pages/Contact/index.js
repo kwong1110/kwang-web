@@ -16,7 +16,7 @@ function Contact({ main }) {
       <S.ContactBox>
         <SubTitle titleName={"Contact"} />
         <DefaultDiv>
-          <CopyToClipboard text={"kwong8535@naver.com"}>
+          <CopyToClipboard text={"kwong1110@gmail.com"}>
             <S.ContactIconBtn
               icon="mail"
               color="secondary"
@@ -26,7 +26,7 @@ function Contact({ main }) {
             </S.ContactIconBtn>
           </CopyToClipboard>
         </DefaultDiv>
-        <h4>kwong8535@naver.com</h4>
+        <h4>kwong1110@gmail.com</h4>
       </S.ContactBox>
       {!main && <ReactTooltip />}
     </>

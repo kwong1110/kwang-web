@@ -10,7 +10,7 @@ import {
   deletePost,
 } from "../../modules/actions/post";
 import { PostAction } from "../../organisms";
-import { ShadowDiv, DefaultForm, Btn, DefaultDiv } from "../../components";
+import { ShadowDiv, Btn, DefaultDiv } from "../../components";
 
 import "codemirror/lib/codemirror.css";
 import "@toast-ui/editor/dist/toastui-editor-viewer.css";
@@ -78,7 +78,7 @@ function PostView() {
     <>
       {!onEdit && (
         <ShadowDiv>
-          <DefaultForm>
+          <S.PostForm>
             <S.PostTitleBox>
               <S.PostTitle>{title}</S.PostTitle>
               {userData && userData.isAuth && (
@@ -126,7 +126,7 @@ function PostView() {
                 )}
               </DefaultDiv>
             </S.PostContentBox>
-          </DefaultForm>
+          </S.PostForm>
         </ShadowDiv>
       )}
       {onEdit && (
