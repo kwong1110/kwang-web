@@ -51,7 +51,7 @@ if (process.env.NODE_ENV === "production") {
 // heroku sleep 방지
 cron.schedule("*/20 23,0-16 * * *", function () {
   console.log("Heroku awake !!");
-  http.get("https://kwangweb.herokuapp.com/");
+  http.get("http://kwangweb.herokuapp.com/");
 });
 
 app.listen(app.get("port"), () => {
