@@ -44,7 +44,7 @@ function About({ main }) {
     <>
       <S.AboutBox>
         <SubTitle titleName={"About"} />
-        <S.SubTitle2>profiles</S.SubTitle2>
+        <S.SubTitle2>profile</S.SubTitle2>
         <DefaultDiv>
           <S.ProfileBox>
             <S.ProfileImg src={profile} alt="profile" />
