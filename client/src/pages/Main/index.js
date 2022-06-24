@@ -1,5 +1,5 @@
 import React from "react";
-import { About, Project, MyNote, Contact } from "..";
+import { About, Project, Contact } from "..";
 
 import ReactTooltip from "react-tooltip";
 
@@ -8,7 +8,6 @@ function Main() {
     <>
       <About main />
       <Project main />
-      <MyNote main />
       <Contact main />
       <ReactTooltip />
     </>

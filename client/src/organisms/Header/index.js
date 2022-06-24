@@ -42,7 +42,6 @@ function Header() {
   const menus = [
     { name: "About", path: "/about" },
     { name: "Project", path: "/posts/project" },
-    { name: "Mynote", path: "/posts/mynote" },
     { name: "Contact", path: "/contact" },
   ];
 
